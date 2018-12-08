@@ -1,0 +1,40 @@
+
+:host {
+    position: sticky;
+    top: 0;
+    float: right;
+}
+
+ul {
+    list-style-type: none;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+}
+
+a {
+    padding: 2px 7px 3px 7px;
+    margin: 0px 1px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    
+    color: rgba(124, 124, 124, 0.9);
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+a:hover {
+    border: 1px solid rgba(163, 149, 123, 0.068);
+    background: rgba(177, 177, 177, 0.13);
+    color: rgba(214, 214, 214, 0.82);
+}
+.active {
+    color: rgba(214, 214, 214, 0.78);
+    -webkit-text-stroke: 0.3px rgba(204, 191, 142, 0.75);
+}

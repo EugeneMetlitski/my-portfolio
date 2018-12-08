@@ -1,0 +1,40 @@
+
+:host {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    border-radius: 15px;
+
+    width: 200px;
+    height: 130px;
+
+    background: rgba(61, 61, 61, 0.205);
+}
+
+img {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 40%;
+    height: auto;
+    
+    padding: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 50%;
+}
+
+label {
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    white-space: nowrap;
+
+    color: rgb(153, 145, 131);
+    font-family: 'Indie Flower', cursive;
+    font-size: 15px;
+}
