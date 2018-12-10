@@ -1,28 +1,43 @@
 
 @import "../../variables.scss";
 
+
 :host {
     z-index: 1;
     display: block;
 
     position: sticky;
-    top: -100px;
-
-    background: map-get($colors, blackground-1);
-}
-
-.container {
-    position: relative;
-
-    width: 85%;
-    max-width: 800px;
-    height: $header-hedight;
+    top: -133px;
 
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    height: $header-hedight;
 }
 
+// This element gives wider background than header element
+.background {
+    position: absolute;
+    left: -10%;
+
+    height: $header-hedight;
+    width: 120%;
+
+    background: map-get($colors, background-1);
+}
+
+// The heading for main content of the page
+h1 {
+    position: absolute;
+    bottom: 25px;
+    left: 220px;
+    transform: translate(0, 50%);
+    margin: 0;
+
+    color: rgba(226, 216, 186, 0.644);
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+}
+
+// Horizontal lline
 .h-line {
     position: absolute;
     bottom: -1px;

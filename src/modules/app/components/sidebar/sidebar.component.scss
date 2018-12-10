@@ -1,20 +1,19 @@
 
 :host {
-    position: relative;
-
-    width: 25%;
+    align-self: flex-start;
+    position: sticky;
+    top: 72px;
 
     background: rgb(38, 38, 38);
     box-shadow: 10px 5px 15px rgb(38, 38, 38);
 }
 
 .container {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
 
-    width: 90%;
-    
-    margin-top: 20px;
-    padding-top: 35px;
+    padding: 10px 28px 30px 28px;
+    margin-right: 20px;
     border-radius: 4px;
 
     background: rgba(90, 84, 71, 0.205);
@@ -22,14 +21,20 @@
 }
 
 h2 {
-    display: inline-block;
-    white-space: nowrap;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    transform: translate(-10px, 0);
 
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
+    color: rgba(255, 244, 230, 0.808);
+    font-size: 22px;
+}
 
-    margin-top: 0;
+h3 {
+    text-align: center;
+
+    margin: 25px 0 0 0;
+    padding: 0;
+
     border-bottom: 1px solid rgb(255,244,230);
 
     color: rgb(255,244,230);
@@ -37,12 +42,14 @@ h2 {
 
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 ul {
+    display: inline-block;
     list-style-type: none;
-    margin: 5px 0 30px 30px;
+
+    margin: 12px 0 0 5px;
     padding: 0;
 }
 
@@ -50,9 +57,10 @@ a {
     display: inline-block;
     white-space: nowrap;
 
-    margin: 3px 0;
-    padding: 2px;
-    
+    margin-top: 5px;
+    padding: 3px 5px;
+    border-radius: 3px;
+
     color: rgba(190, 155, 123, 0.712);
     text-shadow: 2px 2px 2px rgba(10, 10, 10, 0.7);
     -webkit-text-stroke: 0.2px rgba(120, 138, 41, 0.7);
@@ -62,6 +70,7 @@ a {
 }
 
 a:hover {
+    background: rgba(128, 128, 128, 0.397);
     color: rgba(211, 203, 187, 0.774);
     -webkit-text-stroke: 0.2px rgba(162, 189, 43, 0.7);
 }
@@ -74,7 +83,7 @@ a:hover {
 
 .v-line {
     position: absolute;
-    top: 3px;
+    top: -18px;
     right: -2px;
 
     width: 3px;

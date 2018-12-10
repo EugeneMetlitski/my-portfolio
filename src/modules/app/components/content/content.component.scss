@@ -8,10 +8,10 @@
 .container {
     display: inline-block;
     margin: 20px;
+    margin-top: 0;
     margin-right: 0;
 
     border-radius: 4px;
-    // background: rgb(66, 59, 50);
     background: rgba(77, 70, 57, 0.247);
     box-shadow: inset 0px 0px 15px rgba(15, 15, 15, 0.8);
     color: rgba(228, 228, 228, 0.46);
@@ -26,15 +26,4 @@ h2 {
 p {
     margin: 0px 30px;
     font-size: 15px;
-}
-
-h1 {
-    z-index: 2;
-    position: absolute;
-    top: -60px;
-    left: 45px;
-
-    color: rgba(226, 216, 186, 0.644);
-    font-family: 'Roboto', sans-serif;
-    font-size: 26px;
 }

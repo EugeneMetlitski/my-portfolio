@@ -1,7 +1,7 @@
 
 :host {
     position: sticky;
-    top: 0;
+    top: 20px;
     float: right;
 }
 
@@ -34,6 +34,7 @@ a:hover {
     background: rgba(177, 177, 177, 0.13);
     color: rgba(214, 214, 214, 0.82);
 }
+
 .active {
     color: rgba(214, 214, 214, 0.78);
     -webkit-text-stroke: 0.3px rgba(204, 191, 142, 0.75);

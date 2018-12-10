@@ -1,11 +1,12 @@
 
+// The hamburger button
 button {
-    z-index: 100;
     cursor: pointer;
     
     position: absolute;
-    top: -40px;
+    bottom: 25px;
     left: 0;
+    transform: translate(0, 50%);
 
     width: 35px;
     height: 30px;
@@ -17,6 +18,7 @@ button {
     background: transparent;
 }
 
+// The lines inside the button
 button div {
     width: 80%;
     height: 8%;
