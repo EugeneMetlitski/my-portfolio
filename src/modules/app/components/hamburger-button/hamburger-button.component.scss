@@ -1,4 +1,7 @@
 
+@import "../../variables.scss";
+
+
 // The hamburger button
 button {
     cursor: pointer;
@@ -11,7 +14,7 @@ button {
     width: 35px;
     height: 30px;
 
-    border: 2px outset rgba(187, 196, 142, 0.1);
+    border: 2px outset color(h-btn-border);
     border-radius: 7px;
     outline: none;
 
@@ -23,17 +26,17 @@ button div {
     width: 80%;
     height: 8%;
     margin: 8% auto;
-    border: 1px solid rgba(42, 43, 36, 0.856);
+    border: 1px solid color(h-btn-lines-border);
     border-radius: 5px;
 
-    background: rgba(216, 212, 199, 0.938);
+    background: color(h-btn-lines);
 }
 
 button:hover {
-    background: rgba(177, 177, 177, 0.13);
+    background: color(h-btn-hover-bg);
 }
 
 button:active {
-    border: 2px inset rgba(104, 101, 95, 0.527);
-    background: rgba(90, 90, 90, 0.397);
+    border: 2px inset color(h-btn-active-border);
+    background: color(h-btn-hover-bg);
 }

@@ -1,8 +1,75 @@
 
+// All the colors used
 $colors: (
-    background-1: rgb(38, 38, 38),
-    lines-blackground: rgb(145, 145, 145),
-    h-line-box-shadow: 10px 5px 15px rgb(38, 38, 38),
+    bg-1: rgb(38, 38, 38), // Page background
+    bg-2: rgba(61, 61, 61, 0.205), // Profile picture
+    bg-3: rgba(90, 84, 71, 0.205), // Sidenav
+    bg-4: rgba(77, 70, 57, 0.247), // Content
+
+    text-nav: rgba(124, 124, 124, 0.9),
+    text-h1: rgba(226, 216, 186, 0.644),
+    text-name: rgb(153, 145, 131),
+    text-sidenav-h2: rgba(255, 244, 230, 0.808),
+    text-sidenav-h3: rgb(255,244,230),
+    text-sidenav-a: rgba(190, 155, 123, 0.712),
+    text-content: rgba(228, 228, 228, 0.46),
+
+    img-border: rgb(221, 221, 221),
+
+    line-bg: rgb(145, 145, 145),
+    line-box-shadow: rgb(38, 38, 38),
+
+    btn-hover-bg: rgba(177, 177, 177, 0.13),
+    btn-hover-border: rgba(163, 149, 123, 0.068),
+    btn-hover-text: rgba(214, 214, 214, 0.82),
+
+    btn-active-text: rgba(214, 214, 214, 0.78),
+    btn-active-stroke: rgba(204, 191, 142, 0.75),
+
+    h-btn-lines: rgba(216, 212, 199, 0.938),
+    h-btn-lines-border: rgba(42, 43, 36, 0.856),
+    h-btn-border: rgba(187, 196, 142, 0.1),
+    h-btn-hover-bg: rgba(177, 177, 177, 0.13),
+    h-btn-active-border: rgba(104, 101, 95, 0.527),
+
+    sidenav-shadow: rgba(15, 15, 15, 0.8),
+    sidenav-h3-text-shadow: rgba(30, 30, 30, 0.7),
+    sidenav-a-text-shadow: rgba(10, 10, 10, 0.7),
+    sidenav-a-text-stroke: rgba(120, 138, 41, 0.7),
+    sidenav-a-hover-bg: rgba(128, 128, 128, 0.397),
+    sidenav-a-hover-text: rgba(211, 203, 187, 0.774),
+    sidenav-a-hover-stroke: rgba(162, 189, 43, 0.7),
+
+    content-box-shadow: rgba(15, 15, 15, 0.8),
 );
 
-$header-hedight: 185px;
+// Fonts
+$font-1: 'Roboto', sans-serif;
+$font-2: 'Indie Flower', cursive;
+
+// Positioning / sizing
+$header-height: 185px;
+
+
+
+// Functions and reusable code
+
+@function color($arg) {  
+    @return map-get($colors, $arg);
+}
+
+// Reusable code for setting line styles
+%line {
+    position: absolute;
+    border-radius: 40%;
+
+    background: color(line-bg);
+    box-shadow: 10px 5px 15px color(line-box-shadow);
+}
+
+// Reusable code on button hover
+%btn-hover {
+    border: 1px solid color(btn-hover-border);
+    background: color(btn-hover-bg);
+    color: color(btn-hover-text);
+}

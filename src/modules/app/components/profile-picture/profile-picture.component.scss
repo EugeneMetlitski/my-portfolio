@@ -1,4 +1,7 @@
 
+@import "../../variables.scss";
+
+
 :host {
     position: absolute;
     top: 0;
@@ -9,7 +12,7 @@
     width: 200px;
     height: 130px;
 
-    background: rgba(61, 61, 61, 0.205);
+    background: color(bg-2);
 }
 
 img {
@@ -22,7 +25,7 @@ img {
     height: auto;
     
     padding: 5px;
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid color(img-border);
     border-radius: 50%;
 }
 
@@ -34,7 +37,7 @@ label {
 
     white-space: nowrap;
 
-    color: rgb(153, 145, 131);
-    font-family: 'Indie Flower', cursive;
+    color: color(text-name);
+    font-family: $font-2;
     font-size: 15px;
 }

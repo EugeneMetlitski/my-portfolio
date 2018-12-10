@@ -8,9 +8,8 @@
 
     position: sticky;
     top: -133px;
-
     margin-top: 20px;
-    height: $header-hedight;
+    height: $header-height;
 }
 
 // This element gives wider background than header element
@@ -18,10 +17,10 @@
     position: absolute;
     left: -10%;
 
-    height: $header-hedight;
+    height: $header-height;
     width: 120%;
 
-    background: map-get($colors, background-1);
+    background: color(bg-1);
 }
 
 // The heading for main content of the page
@@ -32,22 +31,18 @@ h1 {
     transform: translate(0, 50%);
     margin: 0;
 
-    color: rgba(226, 216, 186, 0.644);
-    font-family: 'Roboto', sans-serif;
+    color: color(text-h1);
+    font-family: $font-1;
     font-size: 26px;
 }
 
 // Horizontal lline
 .h-line {
-    position: absolute;
+    @extend %line;
+
     bottom: -1px;
     left: -2%;
 
     width: 104%;
     height: 3px;
-
-    border-radius: 40%;
-
-    background: map-get($colors, lines-blackground);
-    box-shadow: map-get($colors, h-line-box-shadow);
 }
