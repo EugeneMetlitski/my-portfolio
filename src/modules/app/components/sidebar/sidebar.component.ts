@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding, ElementRef } from '@angular/core';
+import { ToggleSidenavService } from './../../services/toggle-sidenav.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('class.hide-sidebar') hide: boolean;
+
+
+  constructor(
+    private toggleSidenav: ToggleSidenavService,
+    private el: ElementRef) { }
 
   ngOnInit() {
+    // Get the value of wether sidebar is visible
+    this.hide = !this.toggleSidenav.visible;
+
+    // Provide function to call when hanburger button clicked
+    this.toggleSidenav.subscribe(() => {
+      this.hide = !this.toggleSidenav.visible;
+      console.log(this.el.nativeElement.offsetWidth);
+    });
   }
 
 }

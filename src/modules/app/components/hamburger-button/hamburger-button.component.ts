@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToggleSidenavService } from '../../services/toggle-sidenav.service';
 
 @Component({
   selector: 'app-hamburger-button',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HamburgerButtonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private toggleSidenav: ToggleSidenavService) { }
 
   ngOnInit() {
+  }
+
+  click = () => {
+    this.toggleSidenav.toggle();
   }
 
 }

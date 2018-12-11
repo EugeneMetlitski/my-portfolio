@@ -11,6 +11,12 @@
     // box-shadow: 10px 5px 15px rgb(38, 38, 38);
 }
 
+// Apply this class when hiding sidebar
+:host.hide-sidebar {
+    visibility: hidden;
+    width: 0px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
