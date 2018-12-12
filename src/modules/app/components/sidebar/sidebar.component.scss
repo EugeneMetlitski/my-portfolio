@@ -3,18 +3,30 @@
 
 
 :host {
-    align-self: flex-start;
+    // align-self: flex-start;
+    // position: sticky;
+    top: 72px;
+}
+
+.sticky {
     position: sticky;
     top: 72px;
+}
+
+// The sidebar itself
+.sidebar {
+    position: absolute;
+    left: 0;
 
     background: color(bg-1);
     // box-shadow: 10px 5px 15px rgb(38, 38, 38);
 }
 
-// Apply this class when hiding sidebar
-:host.hide-sidebar {
-    visibility: hidden;
-    width: 0px;
+// Element that sidebar can hide behind
+.hide {
+    position: absolute;
+    top: -19px;
+    background: color(bg-1);
 }
 
 .container {
@@ -100,7 +112,6 @@ a:active {
     @extend %line;
 
     top: -18px;
-    right: -2px;
+    // left: 150px;
     width: 3px;
-    height: 600px;
 }

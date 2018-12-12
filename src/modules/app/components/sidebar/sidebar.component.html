@@ -1,20 +1,40 @@
 
-<h2>Projects</h2>
-
-<div class="container">
-
-    <h3>Personal</h3>
-    <ul>
-        <li><a href="#" class="active">Workout App</a></li>
-        <li><a href="#">Money Manager</a></li>
-        <li><a href="#">Chess AI Game</a></li>
-    </ul>
-    
-    <h3>Uni/Tafe</h3>
-    <ul>
-        <li><a href="#">.Net Project</a></li>
-        <li><a href="#">Java Project</a></li>
-    </ul>
+<div class="sticky">
+    <div class="sidebar" [style.left]="sidebarLeft">
+        <h2>Projects</h2>
+        
+        <div class="container">
+        
+            <h3>Personal</h3>
+            <ul>
+                <li><a href="#" class="active">Workout App</a></li>
+                <li><a href="#">Money Manager</a></li>
+                <li><a href="#">Chess AI Game</a></li>
+            </ul>
+            
+            <h3>Uni/Tafe</h3>
+            <ul>
+                <li><a href="#">.Net Project</a></li>
+                <li><a href="#">Java Project</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div class="v-line"></div>
+<div
+    class="v-line"
+    [style.height]="lineHeight"
+    [style.left]="lineLeft"
+></div>
+
+<!-- Element that sidebar can hide behind -->
+<div
+    class="hide"
+    [style.width]="hideWidth"
+    [style.height]="hideHeight"
+    [style.left]="hideLeft"
+></div>
+
+<!-- element that takes space in document flow
+     (because sidebar is position absolute) -->
+<div [style.width]="renderedWidth"></div>
