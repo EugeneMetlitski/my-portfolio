@@ -10,6 +10,16 @@
     top: -133px;
     margin-top: 20px;
     height: $header-height;
+
+    @include tablet {
+        height: $header-height-tablet;
+        top: -140px;
+    }
+
+    @include phone {
+        height: $header-height-phone;
+        top: -140px;
+    }
 }
 
 // This element gives wider background than header element
@@ -21,6 +31,14 @@
     width: 120%;
 
     background: color(bg-1);
+
+    @include tablet {
+        height: $header-height-tablet;
+    }
+
+    @include phone {
+        height: $header-height-phone;
+    }
 }
 
 // The heading for main content of the page
@@ -34,6 +52,11 @@ h1 {
     color: color(text-h1);
     font-family: $font-1;
     font-size: 26px;
+
+    @include tablet {
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
 }
 
 // Horizontal lline

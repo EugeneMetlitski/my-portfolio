@@ -6,11 +6,27 @@
     // align-self: flex-start;
     // position: sticky;
     top: 72px;
+
+    @include tablet {
+        top: 120px;
+    }
+
+    @include phone {
+        top: 230px;
+    }
 }
 
 .sticky {
     position: sticky;
     top: 72px;
+
+    @include tablet {
+        top: 120px;
+    }
+
+    @include phone {
+        top: 230px;
+    }
 }
 
 // The sidebar itself

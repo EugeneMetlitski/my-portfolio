@@ -1,4 +1,8 @@
 
+@mixin tablet { @media (max-width: 800px) { @content; } }
+@mixin phone { @media (max-width: 600px) { @content; } }
+
+
 // All the colors used
 $colors: (
     bg-1: rgb(38, 38, 38), // Page background
@@ -49,6 +53,8 @@ $font-2: 'Indie Flower', cursive;
 
 // Positioning / sizing
 $header-height: 185px;
+$header-height-tablet: 240px;
+$header-height-phone: 350px;
 
 
 

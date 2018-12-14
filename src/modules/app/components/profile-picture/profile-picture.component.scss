@@ -13,6 +13,11 @@
     height: 130px;
 
     background: color(bg-2);
+
+    @include tablet {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
 }
 
 img {
