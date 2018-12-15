@@ -1,0 +1,48 @@
+
+@import "../../global-scss/variables.scss";
+
+
+:host {
+    position: absolute;
+    top: details($profile-picture, top-desktop);
+    left: details($profile-picture, left-desktop);
+
+    border-radius: 15px;
+
+    width: details($profile-picture, width-desktop);
+    height: details($profile-picture, height-desktop);
+
+    background: color(bg-2);
+
+    @include tablet {
+        left: details($profile-picture, left-tablet);
+        transform: details($profile-picture, transform-tablet);
+    }
+}
+
+img {
+    position: absolute;
+    top: details($profile-picture, img-top);
+    left: details($profile-picture, img-left);
+    transform: details($profile-picture, img-transform);
+
+    width: details($profile-picture, img-width);
+    height: auto;
+    
+    padding: 5px;
+    border: 1px solid color(img-border);
+    border-radius: 50%;
+}
+
+label {
+    position: absolute;
+    bottom: details($profile-picture, label-bottom);
+    left: details($profile-picture, label-left);
+    transform: details($profile-picture, label-transform);
+
+    white-space: nowrap;
+
+    color: color(text-name);
+    font-family: $font-2;
+    font-size: 15px;
+}

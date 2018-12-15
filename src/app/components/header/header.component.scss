@@ -1,0 +1,71 @@
+
+@import "../../global-scss/variables.scss";
+
+
+:host {
+    z-index: 2;
+    display: block;
+
+    position: sticky;
+    top: details($header, top-desktop);
+    margin-top: details($header, margin-top);
+    height: details($header, height-desktop);
+
+    @include tablet {
+        height: details($header, height-tablet);
+        top: details($header, top-tablet);
+    }
+
+    @include phone {
+        height: details($header, height-phone);
+        top: details($header, top-phone);
+    }
+}
+
+// This element gives wider background than header element
+.background {
+    position: absolute;
+    left: -10%;
+
+    height: details($header, height-desktop);
+    width: 120%;
+
+    background: color(bg-1);
+
+    @include tablet {
+        height: details($header, height-tablet);
+    }
+
+    @include phone {
+        height: details($header, height-phone);
+    }
+}
+
+// The heading for main content of the page
+h1 {
+    position: absolute;
+    bottom: details($page-heading, bottom-desktop);
+    left: details($page-heading, left-desktop);
+    transform: details($page-heading, transform-desktop);
+    margin: 0;
+
+    color: color(text-h1);
+    font-family: $font-1;
+    font-size: 26px;
+
+    @include tablet {
+        left: details($page-heading, left-tablet);
+        transform: details($page-heading, transform-tablet);
+    }
+}
+
+// Horizontal lline
+.h-line {
+    @extend %line;
+
+    bottom: $h-line-bottom;
+    left: -2%;
+
+    width: 104%;
+    height: 3px;
+}

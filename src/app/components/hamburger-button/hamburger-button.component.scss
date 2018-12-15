@@ -1,5 +1,5 @@
 
-@import "../../variables.scss";
+@import "../../global-scss/variables.scss";
 
 
 // The hamburger button
@@ -7,12 +7,12 @@ button {
     cursor: pointer;
     
     position: absolute;
-    bottom: 25px;
-    left: 0;
-    transform: translate(0, 50%);
+    bottom: details($hamburger-button, bottom);
+    left: details($hamburger-button, left);
+    transform: details($hamburger-button, transform);
 
-    width: 35px;
-    height: 30px;
+    width: details($hamburger-button, width);
+    height: details($hamburger-button, height);
 
     border: 2px outset color(h-btn-border);
     border-radius: 7px;

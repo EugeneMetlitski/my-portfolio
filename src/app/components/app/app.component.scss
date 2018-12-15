@@ -1,0 +1,17 @@
+
+@import "../../global-scss/variables.scss";
+
+
+:host {
+    display: block;
+    margin: 0px auto;
+
+    width: $app-width;
+    max-width: $app-max-width;
+}
+
+main {
+    display: flex;
+    position: relative;
+    margin: $main-margin-top auto $main-margin-bottom auto;
+}

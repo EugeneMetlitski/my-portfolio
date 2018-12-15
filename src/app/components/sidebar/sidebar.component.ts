@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ToggleSidenavService } from './../../services/toggle-sidenav.service';
+import { SidebarService, State } from './../../services/sidebar.service';
+import { ToggleButtonService } from './../../services/toggle-button.service';
+
+
 
 @Component({
   selector: 'app-sidebar',
@@ -23,19 +26,47 @@ export class SidebarComponent implements OnInit {
 
 
   constructor(
-    private toggleSidenav: ToggleSidenavService,
+    private sidebarService: SidebarService,
+    private toggleButton: ToggleButtonService,
     private el: ElementRef
-  ) { }
+  ) {
+    this.subscribeToStateChange();
+  }
 
   ngOnInit() {
+    this.setContent();
     this.setupVariables();
     this.setupToggleButton();
+  }
+
+
+  private subscribeToStateChange = () => {
+
+    this.sidebarService.subToStateChange(State.InsideDocumentFlow, () => {
+      console.log(`InsideDocumentFlow`);
+      this.setW(`${this.width + 20}px`);
+      console.log(this.renderedWidth);
+
+      // document.getElementsByClassName('rendered-width')[0].style.width = `${this.width + 20}px`;
+    });
+
+    this.sidebarService.subToStateChange(State.OutsideDocumentFlow, () => {
+      console.log(`OutsideDocumentFlow`);
+      this.setW(`0`);
+      console.log(this.renderedWidth);
+
+      // document.getElementsByClassName('rendered-width')[0].style.width = `0`;
+    });
+  }
+
+  private setContent() {
+    const content = this.sidebarService.getContent();
   }
 
   private setupVariables() {
 
     // Get the value of wether sidebar is visible
-    this.hide = !this.toggleSidenav.visible;
+    this.hide = !this.toggleButton.visible;
 
     // Get the width of sidebar based on it's content
     this.width = document
@@ -57,21 +88,25 @@ export class SidebarComponent implements OnInit {
     this.lineLeft = `${this.width}px`;
   }
 
+  private setW(w) {
+    this.renderedWidth = w;
+  }
+
   private setupToggleButton = () => {
 
     // Provide function to call when hanburger button clicked
-    this.toggleSidenav.subscribe(() => {
-      this.hide = !this.toggleSidenav.visible;
+    this.toggleButton.subscribe(() => {
+      this.hide = !this.toggleButton.visible;
 
       if (this.hide) {
-        this.sidebarLeft = `${-(this.width + 30)}px`;
-        this.lineLeft = `${-(this.width + 30)}px`;
+        // this.sidebarLeft = `${-(this.width + 30)}px`;
+        // this.lineLeft = `${-(this.width + 30)}px`;
         this.renderedWidth = `0`;
 
       } else {
-        this.sidebarLeft = `0`;
+        // this.sidebarLeft = `0`;
+        // this.lineLeft = `${this.width}px`;
         this.renderedWidth = `${this.width + 20}px`;
-        this.lineLeft = `${this.width}px`;
       }
     });
   }

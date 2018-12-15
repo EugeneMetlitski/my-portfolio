@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ToggleSidenavService {
+export class ToggleButtonService {
   /**
    * This class is for letting the whole
    * application know when wether the

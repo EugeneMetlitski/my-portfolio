@@ -1,0 +1,24 @@
+
+@mixin tablet { @media (max-width: 800px) { @content; } }
+@mixin phone { @media (max-width: 600px) { @content; } }
+
+@import "fonts-colors.scss";
+@import "sizes-locations.scss";
+
+
+
+// Reusable code for setting line styles
+%line {
+    position: absolute;
+    border-radius: 40%;
+
+    background: color(line-bg);
+    box-shadow: 10px 5px 15px color(line-box-shadow);
+}
+
+// Reusable code on button hover
+%btn-hover {
+    border: 1px solid color(btn-hover-border);
+    background: color(btn-hover-bg);
+    color: color(btn-hover-text);
+}
