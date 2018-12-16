@@ -1,40 +1,44 @@
 
-<div class="sticky">
-    <div class="sidebar" [style.left]="sidebarLeft">
-        <h2>Projects</h2>
-        
-        <div class="container">
-        
-            <h3>Personal</h3>
-            <ul>
-                <li><a href="#" class="active">Workout App</a></li>
-                <li><a href="#">Money Manager</a></li>
-                <li><a href="#">Chess AI Game</a></li>
-            </ul>
-            
-            <h3>Uni/Tafe</h3>
-            <ul>
-                <li><a href="#">.Net Project</a></li>
-                <li><a href="#">Java Project</a></li>
-            </ul>
+<div [style.width]="width" style="height:100%;">
+<!-- This div controls the rendered width that pushes the content
+to the side on larger screens -->
+
+    <div class="background" [style.left]="left">
+    <!-- Background div contains all the visible parts of sidenav inclusing
+    the vertical line and it also created a background. It moves to the side
+    to hide behind wall element when the sidenav is supposed to be hidden -->
+
+        <div class="sticky">
+            <div class="sidebar">
+                <h2>Projects</h2>
+
+                <div class="content">
+
+                    <h3>Personal</h3>
+                    <ul>
+                        <li><a href="#" class="active">Workout App</a></li>
+                        <li><a href="#">Money Manager</a></li>
+                        <li><a href="#">Chess AI Game</a></li>
+                    </ul>
+
+                    <h3>Uni/Tafe</h3>
+                    <ul>
+                        <li><a href="#">.Net Project</a></li>
+                        <li><a href="#">Java Project</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<div
-    class="v-line"
-    [style.height]="lineHeight"
-    [style.left]="lineLeft"
-></div>
+        <div
+            class="v-line"
+            [style.height]="lineHeight"
+            [style.left]="lineLeft"
+        ></div>
 
-<!-- Element that sidebar can hide behind -->
-<div
-    class="hide"
-    [style.width]="hideWidth"
-    [style.height]="hideHeight"
-    [style.left]="hideLeft"
-></div>
+    </div><!--background-->
 
-<!-- element that takes space in document flow
-    (because sidebar is position absolute) -->
-<div class="rendered-width" [style.width]="renderedWidth"></div>
+    <!-- Element that background element can hide behind -->
+    <div class="wall"></div>
+
+</div><!--width-->

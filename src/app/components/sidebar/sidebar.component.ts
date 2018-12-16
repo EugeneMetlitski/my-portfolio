@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { SidebarService, State } from './../../services/sidebar.service';
 import { ToggleButtonService } from './../../services/toggle-button.service';
-
+import { WindowResize } from 'src/utils/widnow-resize';
 
 
 @Component({
@@ -11,104 +10,77 @@ import { ToggleButtonService } from './../../services/toggle-button.service';
 })
 export class SidebarComponent implements OnInit {
 
-  private componentHeight: number;
-  private hide: boolean;
-  private width: number;
-  private height: number;
-  private sidebarWidth: string;
-  private renderedWidth: string;
-  private hideWidth: string;
-  private hideHeight: string;
-  private hideLeft: string;
-  private sidebarLeft: string;
-  private lineHeight: string;
-  private lineLeft: string;
+  private w: number;     // Width of sidenav based on content
+  private width: string; // Rendered width
+  private left: string;  // Background element's left style
+  private windowResize: WindowResize;
+  private tablet = 800;
+  private phone  = 600;
 
 
   constructor(
-    private sidebarService: SidebarService,
-    private toggleButton: ToggleButtonService,
-    private el: ElementRef
-  ) {
-    this.subscribeToStateChange();
-  }
+    private el: ElementRef,
+    private toggleButton: ToggleButtonService
+  ) { }
 
   ngOnInit() {
-    this.setContent();
+    // this.setContent();
     this.setupVariables();
     this.setupToggleButton();
+    this.responsiveSetup();
   }
 
 
-  private subscribeToStateChange = () => {
-
-    this.sidebarService.subToStateChange(State.InsideDocumentFlow, () => {
-      console.log(`InsideDocumentFlow`);
-      this.setW(`${this.width + 20}px`);
-      console.log(this.renderedWidth);
-
-      // document.getElementsByClassName('rendered-width')[0].style.width = `${this.width + 20}px`;
-    });
-
-    this.sidebarService.subToStateChange(State.OutsideDocumentFlow, () => {
-      console.log(`OutsideDocumentFlow`);
-      this.setW(`0`);
-      console.log(this.renderedWidth);
-
-      // document.getElementsByClassName('rendered-width')[0].style.width = `0`;
-    });
-  }
-
-  private setContent() {
-    const content = this.sidebarService.getContent();
-  }
+  private setContent() { }
 
   private setupVariables() {
-
-    // Get the value of wether sidebar is visible
-    this.hide = !this.toggleButton.visible;
-
     // Get the width of sidebar based on it's content
-    this.width = document
+    this.w = document
       .getElementsByClassName('sidebar')[0]
       .getBoundingClientRect().width;
-
-    // Get the height of sidebar
-    this.height = document
-      .getElementsByClassName('sidebar')[0]
-      .getBoundingClientRect().height;
-
-    this.componentHeight = this.el.nativeElement.offsetHeight;
-    this.sidebarWidth = `${this.width}px`;
-    this.renderedWidth = `${this.width + 20}px`;
-    this.hideWidth = `${this.width + 20}px`;
-    this.hideHeight = `${this.componentHeight + 100}px`;
-    this.hideLeft = `${-(this.width + 35)}px`;
-    this.lineHeight = `${this.componentHeight + 20}px`;
-    this.lineLeft = `${this.width}px`;
-  }
-
-  private setW(w) {
-    this.renderedWidth = w;
   }
 
   private setupToggleButton = () => {
 
     // Provide function to call when hanburger button clicked
     this.toggleButton.subscribe(() => {
-      this.hide = !this.toggleButton.visible;
+      const hide = !this.toggleButton.visible;
+      console.log(hide);
 
-      if (this.hide) {
-        // this.sidebarLeft = `${-(this.width + 30)}px`;
-        // this.lineLeft = `${-(this.width + 30)}px`;
-        this.renderedWidth = `0`;
-
+      if (hide) {
+        this.width = `0`;
+        this.left = `-${this.w + 40}px`;
       } else {
-        // this.sidebarLeft = `0`;
-        // this.lineLeft = `${this.width}px`;
-        this.renderedWidth = `${this.width + 20}px`;
+        this.width = `${this.w + 20}px`;
+        this.left = `0`;
       }
     });
+  }
+
+  private responsiveSetup = () => {
+    this.windowResize = new WindowResize([this.tablet, this.phone]);
+
+    const onDesktop = () => {
+      this.windowResize.assignFunction(this.tablet, false, () => {
+        this.toggleButton.visible = true;
+      });
+    };
+
+    const onTablet = () => {
+      this.windowResize.assignFunction(this.tablet, true, () => {
+        this.toggleButton.visible = false;
+      });
+    };
+
+    const onPhone = () => {
+      this.windowResize.assignFunction(this.phone, true, () => {
+        console.log(`Phone`);
+      });
+    };
+
+    onDesktop();
+    onTablet();
+    onPhone();
   }
 
 }

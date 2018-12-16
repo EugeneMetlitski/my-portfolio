@@ -75,9 +75,13 @@ $hamburger-button: (
 );
 
 $sidebar: (
-    top-desktop:        72px,
-    top-tablet:         120px,
-    top-phone:          230px,
+    top-desktop:        0,
+    top-tablet:         0,
+    top-phone:          0,
+
+    top-sticky-desktop: 72px,
+    top-sticky-tablet:  120px,
+    top-sticky-phone:   230px,
 
     hide-top:           -19px,
 
