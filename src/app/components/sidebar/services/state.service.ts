@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ToggleButtonService {
-  /**
+/**
    * This class is for letting the whole
    * application know when wether the
    * sidebar is in visible state or not.
    */
+@Injectable({
+  providedIn: 'root'
+})
+export class State {
 
-  private _visible = true;
+  private _visible = false;
+  private renderWidth = false;
   private functions: Function[] = [];
 
   // Getter & setter for visibility state
   public get visible(): boolean {
     return this._visible;
   }
-  public set visible(arg: boolean) {
-    this.changeState(arg);
+
+  public setVisible(arg: boolean, renderWidth: boolean) {
+    (renderWidth) ? this.renderWidth = true : this.renderWidth = false;
+    this.changeVisible(arg);
   }
 
   // Subscribe function to be called on state change
@@ -27,17 +30,17 @@ export class ToggleButtonService {
   }
 
   // Toggle the visibility state
-  public toggle() {
-    this.changeState(!this._visible);
+  public toggleVisible() {
+    this.changeVisible(!this._visible);
   }
 
-  // What happens when state changes
-  private changeState(state: boolean) {
+  // What happens when visible state changes
+  private changeVisible(state: boolean) {
     this._visible = state;
 
     // Call each function that was subscribed
     this.functions.forEach((f) => {
-      f();
+      f(this.renderWidth);
     });
   }
 }

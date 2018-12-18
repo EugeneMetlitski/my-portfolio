@@ -1,16 +1,16 @@
 
-<div [style.width]="width" style="height:100%;">
+<div id="width" style="height:100%;">
 <!-- This div controls the rendered width that pushes the content
 to the side on larger screens -->
 
-    <div class="background" [style.left]="left">
+    <div id="background">
     <!-- Background div contains all the visible parts of sidenav inclusing
     the vertical line and it also created a background. It moves to the side
     to hide behind wall element when the sidenav is supposed to be hidden -->
 
         <div class="sticky">
             <div class="sidebar">
-                <h2>Projects</h2>
+                <h2>{{ title }}</h2>
 
                 <div class="content">
 
@@ -30,11 +30,7 @@ to the side on larger screens -->
             </div>
         </div>
 
-        <div
-            class="v-line"
-            [style.height]="lineHeight"
-            [style.left]="lineLeft"
-        ></div>
+        <div class="v-line"></div>
 
     </div><!--background-->
 

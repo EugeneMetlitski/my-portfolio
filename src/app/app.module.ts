@@ -9,6 +9,7 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
 import { HamburgerButtonComponent } from './components/hamburger-button/hamburger-button.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ContentComponent } from './components/content/content.component';
+import { ControlComponent } from './components/_control/control.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContentComponent } from './components/content/content.component';
     ProfilePictureComponent,
     HamburgerButtonComponent,
     SidebarComponent,
-    ContentComponent
+    ContentComponent,
+    ControlComponent,
   ],
   imports: [
     BrowserModule,

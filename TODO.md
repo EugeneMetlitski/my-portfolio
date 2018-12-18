@@ -4,4 +4,4 @@
 # Important
 
 # Not Very Important
-    - Comment and refactor window.resize.ts in utils foulder
+    - Go through all the comments

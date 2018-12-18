@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToggleButtonService } from '../../services/toggle-button.service';
+import { State } from '../sidebar/services/state.service';
 
 @Component({
   selector: 'app-hamburger-button',
@@ -8,10 +8,10 @@ import { ToggleButtonService } from '../../services/toggle-button.service';
 })
 export class HamburgerButtonComponent {
 
-  constructor(private toggleButton: ToggleButtonService) { }
+  constructor(private sidenavHideSate: State) { }
 
   click = () => {
-    this.toggleButton.toggle();
+    this.sidenavHideSate.toggleVisible();
   }
 
 }
