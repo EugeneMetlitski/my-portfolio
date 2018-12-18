@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { State } from './services/state.service';
+import { Component, AfterViewInit } from '@angular/core';
+import { SidebarStateService } from './services/sidebar-state.service';
+import { SidebarContentService } from './services/sidebar-content.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements AfterViewInit {
   //#region variables
 
-  private content: object;
   private w: number; // Width of sidebar based on content
   private width;     // The element for rendering width
   private left;      // Background element slides when hidden
@@ -17,10 +17,12 @@ export class SidebarComponent implements OnInit {
   //#endregion
   //#region init
 
-  constructor(private state: State) { }
+  constructor(
+    private stateService: SidebarStateService,
+    private contentService: SidebarContentService
+  ) {}
 
-  ngOnInit() {
-    // this.setContent();
+  ngAfterViewInit() {
     this.setupVariables();
     this.setupSateService();
   }
@@ -28,14 +30,10 @@ export class SidebarComponent implements OnInit {
   //#endregion
   //#region getters & setters
 
-  get title() {
-    return `Projects`;
-  }
+  get title() { return `Projects`; }
 
   //#endregion
   //#region private-functions
-
-  private setContent() { }
 
   private setupVariables() {
     // Get the width of sidebar based on it's content
@@ -45,13 +43,17 @@ export class SidebarComponent implements OnInit {
 
     this.width = document.getElementById('width');
     this.left = document.getElementById('background');
+    const wall = document.getElementById('wall');
+
+    this.width.style.width = `${this.w + 20}px`;
+    wall.style.width = `${this.w + 40}px`;
   }
 
   private setupSateService = () => {
 
     // Provide function to call when hanburger button clicked
-    this.state.subscribe((renderWidth: boolean) => {
-      const hide = !this.state.visible;
+    this.stateService.subscribe((renderWidth: boolean) => {
+      const hide = !this.stateService.visible;
 
       if (hide) {
         this.width.style.width = `0`;

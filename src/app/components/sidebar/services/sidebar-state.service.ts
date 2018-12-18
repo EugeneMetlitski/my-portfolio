@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class State {
+export class SidebarStateService {
 
   private _visible = false;
   private renderWidth = false;

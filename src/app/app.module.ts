@@ -1,3 +1,4 @@
+import { ControlService } from './components/control.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,10 +7,11 @@ import { AppComponent } from './components/app/app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
-import { HamburgerButtonComponent } from './components/hamburger-button/hamburger-button.component';
+import { SidebarButtonComponent } from './components/sidebar-button/sidebar-button.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ContentComponent } from './components/content/content.component';
-import { ControlComponent } from './components/_control/control.component';
+import { SidebarStateService } from './components/sidebar/services/sidebar-state.service';
+import { SidebarContentService } from './components/sidebar/services/sidebar-content.service';
 
 @NgModule({
   declarations: [
@@ -17,16 +19,19 @@ import { ControlComponent } from './components/_control/control.component';
     HeaderComponent,
     NavComponent,
     ProfilePictureComponent,
-    HamburgerButtonComponent,
+    SidebarButtonComponent,
     SidebarComponent,
     ContentComponent,
-    ControlComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ControlService,
+    SidebarStateService,
+    SidebarContentService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
