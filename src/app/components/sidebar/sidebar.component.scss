@@ -17,7 +17,7 @@
     }
 }
 
-#background {
+#sidebarBackground {
     position: absolute;
     left: 0;
     height: inherit;
@@ -133,7 +133,7 @@
 }
 
 // Element that sidebar can hide behind
-#wall {
+#sidebarWall {
     // visibility: hidden;
     position: absolute;
     top: -19px;

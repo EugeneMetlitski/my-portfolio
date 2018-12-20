@@ -8,35 +8,19 @@ import { SidebarContentService } from './services/sidebar-content.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  //#region variables
-
-  @ViewChild('bg') bg: ElementRef; // Background element
-  @ViewChild('rw') rw: ElementRef; // Render-Width element
-  @ViewChild('wl') wl: ElementRef; // Wall element
-
-  //#endregion
-  //#region init
-
-  constructor(
-    private stateService: SidebarStateService,
-    private contentService: SidebarContentService
-  ) {
-    this.setupSateService();
-  }
-
-  //#endregion
-  //#region getters & setters
+//#region getters & setters
 
   /**
    * The title of sidebar.
    */
-  get title() { return `Projects`; }
+  private get title() { return `Projects`; }
 
   /**
    * The width of sidebar is determined by the content loaded
    * to the sidebar (i.e. how wide headings and links are).
    */
-  private get w() { return document
+  private get w() {
+    return document
       .getElementsByClassName('sidebar')[0]
       .getBoundingClientRect().width;
   }
@@ -47,7 +31,7 @@ export class SidebarComponent {
    * background.
    */
   private set left(arg: string) {
-    this.bg.nativeElement.style.left = arg;
+    document.getElementById('sidebarBackground').style.left = arg;
   }
 
   /**
@@ -55,7 +39,7 @@ export class SidebarComponent {
    * width space will sidebar take up in document flow).
    */
   private set width(arg: string) {
-    this.rw.nativeElement.style.width = arg;
+    document.getElementById('sidebarWidth').style.width = arg;
   }
 
   /**
@@ -63,7 +47,17 @@ export class SidebarComponent {
    * which sidebar hides when it is in hidden state.
    */
   private set wall(arg: string) {
-    this.wl.nativeElement.style.width = arg;
+    document.getElementById('sidebarWall').style.width = arg;
+  }
+
+  //#endregion
+  //#region init
+
+  constructor(
+    private stateService: SidebarStateService,
+    private contentService: SidebarContentService
+  ) {
+    this.setupSateService();
   }
 
   //#endregion
