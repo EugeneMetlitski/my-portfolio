@@ -1,19 +1,18 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { SidebarStateService } from './services/sidebar-state.service';
-import { SidebarContentService } from './services/sidebar-content.service';
+import { Component, Input, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
-//#region getters & setters
+export class SidebarComponent implements AfterViewInit {
 
-  /**
-   * The title of sidebar.
-   */
-  private get title() { return `Projects`; }
+  @Input() content;
+  private hide: boolean;
+  private renderWidth: boolean;
+  private afterInitRun = false;
+
+//#region getters & setters
 
   /**
    * The width of sidebar is determined by the content loaded
@@ -53,36 +52,49 @@ export class SidebarComponent {
   //#endregion
   //#region init
 
-  constructor(
-    private stateService: SidebarStateService,
-    private contentService: SidebarContentService
-  ) {
-    this.setupSateService();
+  ngAfterViewInit() {
+    this.afterInitRun = true;
+    this.update();
   }
 
   //#endregion
-  //#region private-functions
+  //#region public functions
 
   /**
-   * Subscribe to state service and provide a function to
-   * be called when the state of sidebar changes.
+   * Update the state of the navbar.
+   *
+   * @param hide is the navbar hidden?
+   * @param renderWidth should the navbar take up space in document flow
    */
-  private setupSateService = () => {
+  setState(hide: boolean, renderWidth: boolean) {
+    this.hide = hide;
+    this.renderWidth = renderWidth;
+    this.update();
+  }
 
-    // Provide function to call when sidebar-button is clicked
-    this.stateService.subscribe((renderWidth: boolean) => {
+  /**
+   * Toggle the navbar state between hidden and visible.
+   */
+  toggleHidden = () => {
+    this.hide = !this.hide;
+    this.update();
+  }
 
-      // If the sidebar is in visible state
-      if (this.stateService.visible) {
-        this.width = (renderWidth) ? `${this.w + 20}px` : `0`;
-        this.left = `0`;
-      } else {
-        this.width = `0`;
-        this.left = `-${this.w + 40}px`;
-      }
+  //#endregion
+  //#region private functions
 
-      this.wall = `${this.w + 40}px`;
-    });
+  private update() {
+
+    if (!this.afterInitRun) { return; }
+
+    if (this.hide) {
+      this.width = `0`;
+      this.left = `-${this.w + 40}px`;
+    } else {
+      this.width = (this.renderWidth) ? `${this.w + 20}px` : `0`;
+      this.left = `0`;
+    }
+    this.wall = `${this.w + 40}px`;
   }
 
   //#endregion

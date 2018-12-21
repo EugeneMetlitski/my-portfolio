@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { SidebarStateService } from '../sidebar/services/sidebar-state.service';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-button',
@@ -8,10 +7,6 @@ import { SidebarStateService } from '../sidebar/services/sidebar-state.service';
 })
 export class SidebarButtonComponent {
 
-  constructor(private sidebarHide: SidebarStateService) { }
-
-  click = () => {
-    this.sidebarHide.toggleVisible();
-  }
+  @Output() click: Function;
 
 }

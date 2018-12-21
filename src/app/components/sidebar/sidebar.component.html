@@ -10,10 +10,10 @@ to the side on larger screens -->
 
         <div class="sticky">
             <div class="sidebar">
-                <h2>{{ title }}</h2>
+                <h2>{{ content.title }}</h2>
 
                 <div class="content">
-                    <div *ngFor="let section of contentService.content">
+                    <div *ngFor="let section of content.links">
                         <h3>{{ section.title }}</h3>
                         <ul>
                             <li *ngFor="let link of section.links">

@@ -1,8 +1,8 @@
 
 <app-header></app-header>
 
-<main>
-  <app-sidebar></app-sidebar>
+<main (click)="clicked()">
+  <app-sidebar #sb [content]="sbContent.content"></app-sidebar>
   <app-content></app-content>
 </main>
 

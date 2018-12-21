@@ -1,4 +1,3 @@
-import { ControlService } from './components/control.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,8 +9,7 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
 import { SidebarButtonComponent } from './components/sidebar-button/sidebar-button.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ContentComponent } from './components/content/content.component';
-import { SidebarStateService } from './components/sidebar/services/sidebar-state.service';
-import { SidebarContentService } from './components/sidebar/services/sidebar-content.service';
+import { SidebarContentService } from './services/sidebar-content.service';
 
 @NgModule({
   declarations: [
@@ -28,8 +26,6 @@ import { SidebarContentService } from './components/sidebar/services/sidebar-con
     AppRoutingModule
   ],
   providers: [
-    ControlService,
-    SidebarStateService,
     SidebarContentService,
   ],
   bootstrap: [AppComponent]
