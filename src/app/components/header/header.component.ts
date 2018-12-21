@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Output() change = new EventEmitter();
 
   get title() {
     return `Portfolio`;
+  }
+
+  onChange = () => {
+    this.change.emit();
   }
 
 }

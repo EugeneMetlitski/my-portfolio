@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { WindowResize } from 'src/utils/widnow-resize';
-import { SidebarComponent } from './../sidebar/sidebar.component';
+import { SidebarComponent, State } from './../sidebar/sidebar.component';
 import { SidebarContentService } from '../../services/sidebar-content.service';
 
 @Component({
@@ -29,23 +29,32 @@ export class AppComponent implements OnInit {
 
   private onDesktop = () => {
     this.windowResize.assignFunction(this.tablet, false, () => {
-      this.sb.setState(false, true);
+      this.sb.setState({
+        hidden: false,
+        renderWidth: true,
+      });
     });
   }
 
   private onTablet = () => {
     this.windowResize.assignFunction(this.tablet, true, () => {
-      this.sb.setState(true, false);
+      this.sb.setState({
+        hidden: true,
+        renderWidth: false,
+      });
     });
   }
 
   private onPhone = () => {
     this.windowResize.assignFunction(this.phone, true, () => {
-      this.sb.setState(true, false);
+      this.sb.setState({
+        hidden: true,
+        renderWidth: false,
+      });
     });
   }
 
-  clicked = () => {
+  private onBtnSidebarClicked = () => {
     this.sb.toggleHidden();
   }
 

@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-button',
@@ -7,6 +7,10 @@ import { Component, Output } from '@angular/core';
 })
 export class SidebarButtonComponent {
 
-  @Output() click: Function;
+  @Output() change = new EventEmitter();
+
+  onClick = () => {
+    this.change.emit();
+  }
 
 }

@@ -63,12 +63,14 @@ export class SidebarComponent implements AfterViewInit {
   /**
    * Update the state of the navbar.
    *
-   * @param hide is the navbar hidden?
-   * @param renderWidth should the navbar take up space in document flow
+   * @param state is an object that implements State interface. This
+   * interface has the following values:
+   * @param hidden is the sidebar hidden or visible?
+   * @param renderWidth should the sidebar take up width in document flow?
    */
-  setState(hide: boolean, renderWidth: boolean) {
-    this.hide = hide;
-    this.renderWidth = renderWidth;
+  setState(state: State) {
+    this.hide = state.hidden;
+    this.renderWidth = state.renderWidth;
     this.update();
   }
 
@@ -84,9 +86,7 @@ export class SidebarComponent implements AfterViewInit {
   //#region private functions
 
   private update() {
-
-    if (!this.afterInitRun) { return; }
-
+    // if (!this.afterInitRun) { return; }
     if (this.hide) {
       this.width = `0`;
       this.left = `-${this.w + 40}px`;
@@ -98,4 +98,15 @@ export class SidebarComponent implements AfterViewInit {
   }
 
   //#endregion
+}
+
+/**
+ * This describes the state of the sidebar.
+ *
+ * @param hidden is the sidebar hidden or visible?
+ * @param renderWidth should the sidebar take up width in document flow?
+ */
+export interface State {
+  hidden: boolean;
+  renderWidth: boolean;
 }
