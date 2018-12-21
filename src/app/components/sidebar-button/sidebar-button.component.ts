@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-sidebar-button',
@@ -9,7 +10,8 @@ export class SidebarButtonComponent {
 
   @Output() change = new EventEmitter();
 
-  onClick = () => {
+  onClick = ($event: Event) => {
+    $event.stopPropagation();
     this.change.emit();
   }
 

@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  private onDesktop = () => {
+  private onDesktop() {
     this.windowResize.assignFunction(this.tablet, false, () => {
       this.sb.setState({
         hidden: false,
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  private onTablet = () => {
+  private onTablet() {
     this.windowResize.assignFunction(this.tablet, true, () => {
       this.sb.setState({
         hidden: true,
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  private onPhone = () => {
+  private onPhone() {
     this.windowResize.assignFunction(this.phone, true, () => {
       this.sb.setState({
         hidden: true,
@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  private onBtnSidebarClicked = () => {
+  onBtnSidebarClicked() {
     this.sb.toggleHidden();
   }
 
