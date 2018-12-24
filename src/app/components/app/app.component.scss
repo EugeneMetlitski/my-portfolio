@@ -15,3 +15,33 @@ main {
     position: relative;
     margin: $main-margin-top auto $main-margin-bottom auto;
 }
+
+.content {
+    flex: 1;
+    position: relative;
+    
+    // .container {
+        // display: inline-block;
+        margin: 0;
+        padding: 20px 30px;
+    
+        // height: 1500px;
+    
+        border-radius: 4px;
+        background: color(bg-4);
+        box-shadow: inset 0px 0px 15px color(content-box-shadow);
+        color: color(text-content);
+        font-family: $font-1;
+    // }
+    
+    h2 {
+        margin: 45px 20px 20px 50px;
+        font-size: 23px;
+        background: black;
+    }
+    
+    p {
+        margin: 0px 30px;
+        font-size: 15px;
+    }
+}

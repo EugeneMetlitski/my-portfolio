@@ -13,11 +13,11 @@ to the side on larger screens -->
                 <h2>{{ content.title }}</h2>
 
                 <div class="content">
-                    <div *ngFor="let section of content.links">
+                    <div *ngFor="let section of content.sections">
                         <h3>{{ section.title }}</h3>
                         <ul>
                             <li *ngFor="let link of section.links">
-                                <a href="#" [class.active]="link.active">{{ link.txt }}</a>
+                                <a [routerLink]="link.url" [class.active]="isActivePage(link.url)">{{ link.txt }}</a>
                             </li>
                         </ul>
                     </div>

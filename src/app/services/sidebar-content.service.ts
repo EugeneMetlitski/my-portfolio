@@ -8,22 +8,22 @@ export class SidebarContentService {
   get content() {
     return {
       title: 'Projects',
-      links: [
+      sections: [
         {
           title: `Personal`,
           links: [
-            { txt: `Workout App`, active: true },
-            { txt: `Money Manager`, active: false },
-            { txt: `Chess AI Game`, active: false }
+            { txt: `Workout App`,    url: 'projects/workout-app' },
+            { txt: `Money Manager`,  url: 'projects/money-tracker' },
+            // { txt: `Chess AI Game`,  link: 'workout-app' }
           ]
         },
-        {
-          title: `Uni / Tafe`,
-          links: [
-            { txt: `.Net Project`, active: false },
-            { txt: `Java Project`, active: false }
-          ]
-        }
+        // {
+        //   title: `Uni / Tafe`,
+        //   links: [
+        //     { txt: `.Net Project`,   link: 'money-tracker' },
+        //     { txt: `Java Project`,   link: 'workout-app' }
+        //   ]
+        // }
       ]
     };
   }

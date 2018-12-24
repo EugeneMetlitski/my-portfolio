@@ -3,7 +3,10 @@
 
 <main>
   <app-sidebar #sb [content]="sbContent.content"></app-sidebar>
-  <app-content></app-content>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- <app-portfolio></app-portfolio> -->
 </main>
 
 <!-- <footer></footer> -->

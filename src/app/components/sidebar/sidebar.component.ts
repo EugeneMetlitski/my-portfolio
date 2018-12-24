@@ -1,4 +1,5 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -52,6 +53,10 @@ export class SidebarComponent implements AfterViewInit {
   //#endregion
   //#region init
 
+  constructor(private _router: Router) {
+    console.log(`SIDEBAR COMPONENT INITIALIZED`);
+  }
+
   ngAfterViewInit() {
     this.afterInitRun = true;
     this.update();
@@ -96,6 +101,13 @@ export class SidebarComponent implements AfterViewInit {
     }
     this.wall = `${this.w + 40}px`;
   }
+
+  isActivePage(page: string): boolean {
+    console.log('/' + page);
+    console.log(this._router.url);
+    console.log('/' + page === this._router.url);
+    return '/' + page === this._router.url;
+}
 
   //#endregion
 }
