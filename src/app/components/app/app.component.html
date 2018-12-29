@@ -1,5 +1,8 @@
 
-<app-header (change)="onBtnSidebarClicked()"></app-header>
+<app-header
+  (change)="onBtnSidebarClicked()"
+  [showOnScrollUp] = "headerShowOnScrollUp"
+></app-header>
 
 <main>
   <app-sidebar #sb [content]="sbContent.content"></app-sidebar>

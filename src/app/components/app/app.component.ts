@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   private phone  = 600;
 
   @ViewChild('sb') sb: SidebarComponent;
+  headerShowOnScrollUp: boolean;
 
 
   constructor(private sbContent: SidebarContentService) { }
@@ -33,6 +34,7 @@ export class AppComponent implements OnInit {
         hidden: false,
         renderWidth: true,
       });
+      this.headerShowOnScrollUp = false;
     });
   }
 
@@ -42,6 +44,7 @@ export class AppComponent implements OnInit {
         hidden: true,
         renderWidth: false,
       });
+      this.headerShowOnScrollUp = false;
     });
   }
 
@@ -51,6 +54,7 @@ export class AppComponent implements OnInit {
         hidden: true,
         renderWidth: false,
       });
+      this.headerShowOnScrollUp = true;
     });
   }
 

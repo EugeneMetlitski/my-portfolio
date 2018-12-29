@@ -1,3 +1,4 @@
+import { JsTransition } from './../../../utils/jsAnimations';
 import { Component, Input, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,7 +12,7 @@ export class SidebarComponent implements AfterViewInit {
   @Input() content;
   private hide: boolean;
   private renderWidth: boolean;
-  private afterInitRun = false;
+  private anim = new JsTransition(500);
 
 //#region getters & setters
 
@@ -53,12 +54,9 @@ export class SidebarComponent implements AfterViewInit {
   //#endregion
   //#region init
 
-  constructor(private _router: Router) {
-    console.log(`SIDEBAR COMPONENT INITIALIZED`);
-  }
+  constructor(private _router: Router) {}
 
   ngAfterViewInit() {
-    this.afterInitRun = true;
     this.update();
   }
 
@@ -84,28 +82,45 @@ export class SidebarComponent implements AfterViewInit {
    */
   toggleHidden = () => {
     this.hide = !this.hide;
-    this.update();
+    this.update(true);
   }
 
   //#endregion
   //#region private functions
 
-  private update() {
+  private update(transition?: boolean) {
     // if (!this.afterInitRun) { return; }
     if (this.hide) {
-      this.width = `0`;
-      this.left = `-${this.w + 40}px`;
+      if (transition) {
+        this.anim.run([
+          { start: this.w + 20, end: 0 },
+          { start: 0, end: -(this.w + 40) },
+        ], (vals) => {
+          this.width = (this.renderWidth) ? vals[0] + 'px' : `0`;
+          this.left = vals[1] + 'px';
+        });
+      } else {
+        this.width = `0`;
+        this.left = `-${this.w + 40}px`;
+      }
     } else {
-      this.width = (this.renderWidth) ? `${this.w + 20}px` : `0`;
-      this.left = `0`;
+      if (transition) {
+        this.anim.run([
+          { start: 0, end: this.w + 20 },
+          { start: -(this.w + 40), end: 0 },
+        ], (vals) => {
+          this.width = (this.renderWidth) ? vals[0] + 'px' : `0`;
+          this.left = vals[1] + 'px';
+        });
+      } else {
+        this.width = (this.renderWidth) ? `${this.w + 20}px` : `0`;
+        this.left = `0`;
+      }
     }
     this.wall = `${this.w + 40}px`;
   }
 
   isActivePage(page: string): boolean {
-    console.log('/' + page);
-    console.log(this._router.url);
-    console.log('/' + page === this._router.url);
     return '/' + page === this._router.url;
 }
 
