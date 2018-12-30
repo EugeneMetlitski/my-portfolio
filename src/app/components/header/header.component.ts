@@ -11,7 +11,7 @@ export class HeaderComponent implements OnChanges {
   @Output() change = new EventEmitter();
 
   ngOnChanges() {
-    console.log(this.showOnScrollUp);
+    console.log('HEADER SHOW ON CLROLL UP' + this.showOnScrollUp);
   }
 
   get title() {

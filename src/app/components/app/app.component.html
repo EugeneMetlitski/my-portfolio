@@ -1,15 +1,21 @@
 
-<app-header
-  (change)="onBtnSidebarClicked()"
-  [showOnScrollUp] = "headerShowOnScrollUp"
-></app-header>
+<div (window:resize)="onWindowResize($event)">
 
-<main>
-  <app-sidebar #sb [content]="sbContent.content"></app-sidebar>
-  <div class="content">
-    <router-outlet></router-outlet>
-  </div>
-  <!-- <app-portfolio></app-portfolio> -->
-</main>
+  <app-header
+    (change)="onBtnSidebarClicked()"
+    [showOnScrollUp] = "headerShowOnScrollUp"
+  ></app-header>
+  
+  <main>
+    <app-sidebar #sb [content]="sbContent.content"></app-sidebar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- <app-portfolio></app-portfolio> -->
+  </main>
+  
+  <!-- <footer></footer> -->
 
-<!-- <footer></footer> -->
+</div>
+
+
