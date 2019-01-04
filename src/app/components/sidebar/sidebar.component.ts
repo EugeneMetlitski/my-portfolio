@@ -1,4 +1,4 @@
-import { JsTransition } from './../../../utils/jsAnimations';
+import { CustomTransition } from '../../../utils/animations/custom-transition';
 import { Component, Input, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ export class SidebarComponent implements AfterViewInit {
   @Input() content;
   private hide: boolean;
   private renderWidth: boolean;
-  private anim = new JsTransition(500);
+  private anim = new CustomTransition(500);
 
 //#region getters & setters
 

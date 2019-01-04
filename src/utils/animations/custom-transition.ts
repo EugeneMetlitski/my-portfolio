@@ -1,4 +1,4 @@
-import { StyleValue } from './jsAnimations';
+import { StyleValue } from './custom-transition';
 
 // Function from http://www.gizma.com/easing/
 export function easeInOutQuad(t, b, c, d) {
@@ -14,7 +14,7 @@ export interface StyleValue {
     end: number;
 }
 
-export class JsTransition {
+export class CustomTransition {
     //#region vars
 
     private values: StyleValue[];
@@ -24,7 +24,7 @@ export class JsTransition {
     private duration: number;
 
     private timeElapsed = 0;
-    private jsAnimate = new JsAnimate((dt: number) => {
+    private jsAnimate = new CustomAnimationLoop((dt: number) => {
         this.timeElapsed += dt;
 
         // Check if animation should stop
@@ -71,7 +71,7 @@ export class JsTransition {
     //#endregion
 }
 
-export class JsAnimate {
+export class CustomAnimationLoop {
     private run = false;
 
     constructor(private callback: Function) {}

@@ -78,35 +78,7 @@ export class AppComponent {
     }
   }
 
-
-  //   switch (this.currentMedia) {
-  //     case this.desktop:
-  //       if (event.target.innerWidth <= this.tablet) {
-  //         this.currentMedia = this.tablet;
-  //         this.onTablet();
-  //       }
-  //       break;
-  //     case this.tablet:
-  //       if (event.target.innerWidth <= this.phone) {
-  //         this.currentMedia = this.phone;
-  //         this.onPhone();
-
-  //       } else if (event.target.innerWidth > this.tablet) {
-  //         this.currentMedia = this.desktop;
-  //         this.onDesktop();
-
-  //       }
-  //       break;
-  //     case this.phone:
-  //     if (event.target.innerWidth > this.phone) {
-  //       this.currentMedia = this.tablet;
-  //       this.onTablet();
-
-  //     }
-  //       break;
-  //     default:
-  //       throw new Error('Undefined media');
-  //   }
-  // }
-
+  private onBtnSidebarClicked() {
+    console.log(`sidebar button clicked`);
+  }
 }
