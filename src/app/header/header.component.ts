@@ -1,5 +1,6 @@
-import { ShowOnScrollUp } from './../../../utils/animations/scroll-transitions';
 import { Component, Output, EventEmitter, Input, OnChanges, ElementRef } from '@angular/core';
+import { ShowOnScrollUp } from 'src/utils/animations/scroll-transitions';
+
 
 @Component({
   selector: 'app-header',

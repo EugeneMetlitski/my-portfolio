@@ -3,20 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './components/app/app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { NavComponent } from './components/nav/nav.component';
-import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
-import { SidebarButtonComponent } from './components/sidebar-button/sidebar-button.component';
-import { SidenavComponent } from './components/sidebar/sidebar.component';
-import { SidebarContentService } from './services/sidebar-content.service';
-import { BioComponent } from './components/content/bio/bio.component';
-import { ResumeComponent } from './components/content/resume/resume.component';
-import { ContactComponent } from './components/content/contact/contact.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ProjectsComponent } from './components/content/projects/projects/projects.component';
-import { WorkoutAppComponent } from './components/content/projects/workout-app/workout-app.component';
-import { MoneyTrackerComponent } from './components/content/projects/money-tracker/money-tracker.component';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { NavComponent } from './header/nav/nav.component';
+import { ProfilePictureComponent } from './header/profile-picture/profile-picture.component';
+import { SidebarButtonComponent } from './header/sidebar-button/sidebar-button.component';
+import { SidenavComponent } from './sidebar/sidebar.component';
+import { BioComponent } from './content/bio/bio.component';
+import { ResumeComponent } from './content/resume/resume.component';
+import { ContactComponent } from './content/contact/contact.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { WorkoutAppComponent } from './content/projects/workout-app/workout-app.component';
+import { MoneyTrackerComponent } from './content/projects/money-tracker/money-tracker.component';
+import { ProjectsComponent } from './content/projects/projects/projects.component';
+import { SidebarContentService } from 'src/services/sidebar-content.service';
 
 
 @NgModule({

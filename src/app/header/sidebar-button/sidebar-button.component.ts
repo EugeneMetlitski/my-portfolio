@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { $ } from 'protractor';
 
 @Component({
   selector: 'app-sidebar-button',

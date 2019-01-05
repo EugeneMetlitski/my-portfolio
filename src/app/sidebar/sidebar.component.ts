@@ -1,6 +1,6 @@
-import { CustomTransition } from '../../../utils/animations/custom-transition';
 import { Component, Input, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { CustomTransition } from 'src/utils/animations/custom-transition';
 
 @Component({
   selector: 'app-sidebar',
