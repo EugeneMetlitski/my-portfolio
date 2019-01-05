@@ -13,24 +13,35 @@ export class AppComponent {
   currentMedia: number;
 
   headerShowOnScrollUp: boolean;
+  sidenavContent: Object;
+  sidenavHide: boolean;
+  sidenavRenderWidth: boolean;
+  sidenavUseTransition: boolean;
 
-  constructor(private sbContent: SidebarContentService) {
+  constructor(sidenavContentService: SidebarContentService) {
+    this.sidenavContent = sidenavContentService.content;
     this.setCurrentMedia();
   }
 
   onDesktop() {
-    console.log(`Desktop`);
     this.headerShowOnScrollUp = false;
+    this.sidenavHide = false;
+    this.sidenavRenderWidth = true;
+    this.sidenavUseTransition = false;
   }
 
   onTablet() {
-    console.log(`Tablet`);
     this.headerShowOnScrollUp = false;
+    this.sidenavHide = true;
+    this.sidenavRenderWidth = false;
+    this.sidenavUseTransition = false;
   }
 
   onPhone() {
-    console.log(`Phone`);
     this.headerShowOnScrollUp = true;
+    this.sidenavHide = true;
+    this.sidenavRenderWidth = false;
+    this.sidenavUseTransition = false;
   }
 
   /**
@@ -79,6 +90,7 @@ export class AppComponent {
   }
 
   private onBtnSidebarClicked() {
-    console.log(`sidebar button clicked`);
+    this.sidenavHide = !this.sidenavHide;
+    this.sidenavUseTransition = true;
   }
 }

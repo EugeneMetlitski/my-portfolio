@@ -8,7 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 import { SidebarButtonComponent } from './components/sidebar-button/sidebar-button.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidenavComponent } from './components/sidebar/sidebar.component';
 import { SidebarContentService } from './services/sidebar-content.service';
 import { BioComponent } from './components/content/bio/bio.component';
 import { ResumeComponent } from './components/content/resume/resume.component';
@@ -26,7 +26,7 @@ import { MoneyTrackerComponent } from './components/content/projects/money-track
     NavComponent,
     ProfilePictureComponent,
     SidebarButtonComponent,
-    SidebarComponent,
+    SidenavComponent,
     BioComponent,
     ResumeComponent,
     ContactComponent,

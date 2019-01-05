@@ -1,8 +1,6 @@
 
 # Very Important
-    - Implement routing
     - Implement animations
-    - Watch the angular videos
 
 # Important
     - Make utils/window-resize emit an event that window size query
@@ -11,8 +9,10 @@
     in the app component.
 
 # Not Very Important
+    - Make the sidenav component use Angular transitions instead of js.
+
     - Check that all components are only responsible for
     logic for the view and nothing else, all other logic
     is incorporated in services.
-
     - Go through all the comments
+    - Watch the angular videos
