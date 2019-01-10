@@ -6,12 +6,12 @@ import { CustomTransition } from 'src/utils/animations/custom-transition';
   templateUrl: './header-button.component.html',
   styleUrls: ['./header-button.component.scss']
 })
-export class HeaderButtonComponent implements AfterViewInit {
+export class BtnUpDownComponent implements AfterViewInit {
 
   @Output() change = new EventEmitter();
 
   private btn: HTMLElement;
-  enabled = false;
+  private enabled = false;
   private transition = new CustomTransition(500);
   private arrowDown = false;
   private scrollYPrev = 0;
@@ -58,9 +58,10 @@ export class HeaderButtonComponent implements AfterViewInit {
     if (window.scrollY >= 390) {
       if (!this.enabled) {
         this.enabled = true;
-        // this.btn.style.top = `${41}px`;
+        this.arrowDown = false;
         this.currentTop = -12;
         this.btn.style.top = `${this.currentTop}px`;
+        this.btn.style.transform = `translate(0, -100%) rotateX(0deg)`;
       }
 
       // If srolled up
@@ -77,6 +78,7 @@ export class HeaderButtonComponent implements AfterViewInit {
           if (this.currentTop < -12) { this.currentTop = -12; }
           this.btn.style.top = `${this.currentTop}px`;
         }
+        if (this.currentTop === -12) { this.enabled = false; }
       }
 
     } else if (window.scrollY < 330) {

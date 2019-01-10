@@ -12,14 +12,6 @@
 <!-- Button to open / close the sidenav -->
 <app-sidebar-button (change)="onBtnSidenavClicked()"></app-sidebar-button>
 
-<!-- Button to open / close main nav bar for mobile media -->
-<!-- <button *ngIf="btnShowHeader"
-    [style.visibility]="isPhone ? 'visible' : 'hidden'"
-    (click)="onBtnShowHeaderClicked()"
-    id="btnShowHeader">
-    <div></div><div></div>
-</button> -->
-
 <!-- Button to scroll up on mobile media -->
 <button *ngIf="btnScrlUp"
     (click)="onBtnScrlUpClicked()"

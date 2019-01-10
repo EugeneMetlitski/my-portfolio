@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderButtonComponent } from './header-button.component';
+import { BtnUpDownComponent } from './header-button.component';
 
 describe('HeaderButtonComponent', () => {
-  let component: HeaderButtonComponent;
-  let fixture: ComponentFixture<HeaderButtonComponent>;
+  let component: BtnUpDownComponent;
+  let fixture: ComponentFixture<BtnUpDownComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderButtonComponent ]
+      declarations: [ BtnUpDownComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderButtonComponent);
+    fixture = TestBed.createComponent(BtnUpDownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

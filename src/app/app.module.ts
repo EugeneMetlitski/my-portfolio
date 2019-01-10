@@ -7,17 +7,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './header/nav/nav.component';
 import { ProfilePictureComponent } from './header/profile-picture/profile-picture.component';
+import { BtnUpDownComponent } from './btn-up-down/header-button.component';
+import { SidenavComponent } from './sidenav/sidebar.component';
 import { SidebarButtonComponent } from './header/sidebar-button/sidebar-button.component';
-import { SidenavComponent } from './sidebar/sidebar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { BioComponent } from './content/bio/bio.component';
+import { ProjectsComponent } from './content/projects/projects/projects.component';
 import { ResumeComponent } from './content/resume/resume.component';
 import { ContactComponent } from './content/contact/contact.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { WorkoutAppComponent } from './content/projects/workout-app/workout-app.component';
 import { MoneyTrackerComponent } from './content/projects/money-tracker/money-tracker.component';
-import { ProjectsComponent } from './content/projects/projects/projects.component';
 import { SidebarContentService } from 'src/services/sidebar-content.service';
-import { HeaderButtonComponent } from './header-button/header-button.component';
 
 
 @NgModule({
@@ -26,16 +26,16 @@ import { HeaderButtonComponent } from './header-button/header-button.component';
     HeaderComponent,
     NavComponent,
     ProfilePictureComponent,
-    SidebarButtonComponent,
+    BtnUpDownComponent,
     SidenavComponent,
+    SidebarButtonComponent,
+    NotFoundComponent,
     BioComponent,
     ResumeComponent,
     ContactComponent,
-    NotFoundComponent,
     WorkoutAppComponent,
     MoneyTrackerComponent,
     ProjectsComponent,
-    HeaderButtonComponent,
   ],
   imports: [
     BrowserModule,
