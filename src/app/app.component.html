@@ -2,9 +2,13 @@
 <div (window:resize)="onWindowResize($event)">
 
   <app-header
-    (change)="onBtnSidebarClicked()"
-    [showOnScrollUp] = "headerShowOnScrollUp"
+    (btnSidenavClick)="onBtnSidenavClicked()"
+    [media]="media"
+    [btnHeaderDown]="btnHeaderDown"
   ></app-header>
+  <app-header-button
+    (change)="btnHeaderDown = !btnHeaderDown"
+  ></app-header-button>
   
   <main>
     <app-sidebar

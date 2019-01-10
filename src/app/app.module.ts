@@ -17,6 +17,7 @@ import { WorkoutAppComponent } from './content/projects/workout-app/workout-app.
 import { MoneyTrackerComponent } from './content/projects/money-tracker/money-tracker.component';
 import { ProjectsComponent } from './content/projects/projects/projects.component';
 import { SidebarContentService } from 'src/services/sidebar-content.service';
+import { HeaderButtonComponent } from './header-button/header-button.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SidebarContentService } from 'src/services/sidebar-content.service';
     NotFoundComponent,
     WorkoutAppComponent,
     MoneyTrackerComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    HeaderButtonComponent,
   ],
   imports: [
     BrowserModule,

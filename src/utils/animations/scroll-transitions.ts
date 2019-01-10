@@ -7,7 +7,7 @@
  * @param scrollY where to scroll to (in pixels)
  * @param duration how long should it take (in milliseconds)
  */
-export function smoothScrollTo(scrollY, duration) {
+export function smoothScrollTo(scrollY: number, duration: number) {
 
     // console.log('hello');
     const startScrollY = window.scrollY;
@@ -87,14 +87,20 @@ export class ShowOnScrollUp {
     }
 
     activate() {
-        this.active = true;
-        this.previousScrollY = window.scrollY;
-        window.addEventListener('scroll', this.processScroll);
+        console.log('activate');
+        if (!this.active) {
+            this.active = true;
+            this.previousScrollY = window.scrollY;
+            window.addEventListener('scroll', this.processScroll);
+        }
     }
 
     deactivate() {
-        this.active = false;
-        window.removeEventListener('scroll', this.processScroll);
+        console.log('deactivate');
+        if (this.active) {
+            this.active = false;
+            window.removeEventListener('scroll', this.processScroll);
+        }
     }
 
     isActive() {
