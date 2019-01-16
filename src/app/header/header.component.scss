@@ -3,7 +3,7 @@
 
 
 :host {
-    z-index: 2;
+    z-index: 3;
     display: block;
 
     position: sticky;
@@ -70,57 +70,14 @@ h1 {
     height: 3px;
 }
 
-
-// Button to open / close main nav bar for mobile media
-#btnShowHeader {
-    // visibility: hidden;
-    cursor: pointer;
-    
-    position: fixed;
-    top: 20px;
-    right: 0;
-    transform: translate(0, 50%);
-
-    width: details($hamburger-button, width);
-    height: details($hamburger-button, height);
-
-    border: 2px outset transparent;
-    border-radius: 7px;
-    outline: none;
-
-    background: transparent;
-
-    div {
-        position: absolute;
-        left: 49%;
-        top: 39%;
-        display: inline-block;
-        width: 40%;
-        height: 8%;
-        margin: 8% 0;
-        border-radius: 100px;
-    
-        background: color(h-btn-lines);
-    }
-    
-    div:nth-child(1) {
-        transform: translate(-80%, 0) rotate(45deg);
-    }
-    
-    div:nth-child(2) {
-        transform: translate(-20%, 0) rotate(-45deg);
-    }
-}
-
 // Button to scroll up on mobile media
 #btnScrlUp {
-    // visibility: hidden;
+    visibility: hidden;
     cursor: pointer;
 
     position: absolute;
-    top: 143px;
-    right: 0;
-    transform: details($hamburger-button, transform);
+    top: 157px;
+    left: 91.1%;
 
     width: details($hamburger-button, width);
     height: details($hamburger-button, height);
@@ -160,11 +117,11 @@ h1 {
     }
 }
 
-#btnShowHeader:hover, #btnScrlUp:hover {
+#btnScrlUp:hover {
     background: color(h-btn-hover-bg);
 }
 
-#btnShowHeader:active, #btnScrlUp:active {
+#btnScrlUp:active {
     border: 2px inset color(h-btn-active-border);
     background: color(h-btn-hover-bg);
 }

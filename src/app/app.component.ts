@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { PhoneMediaControler } from '../services/phone-media-controler';
+import { Component, AfterViewInit } from '@angular/core';
 import { SidebarContentService } from 'src/services/sidebar-content.service';
 
 export enum Media { phone = 600, tablet = 800 }
@@ -8,19 +9,24 @@ export enum Media { phone = 600, tablet = 800 }
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
   media: Media;
+
+  private phoneMediaController = new PhoneMediaControler();
 
   sidenavContent: Object;
   sidenavHide: boolean;
   sidenavRenderWidth: boolean;
   sidenavUseTransition: boolean;
-  btnHeaderDown = true;
 
   constructor(sidenavContentService: SidebarContentService) {
     this.sidenavContent = sidenavContentService.content;
     this.setCurrentMedia();
+  }
+
+  ngAfterViewInit(): void {
+    this.phoneMediaController.init();
   }
 
   onDesktop() {
@@ -35,6 +41,7 @@ export class AppComponent {
     this.sidenavHide = true;
     this.sidenavRenderWidth = false;
     this.sidenavUseTransition = false;
+    this.phoneMediaController.deactivate();
   }
 
   onPhone() {
@@ -42,6 +49,7 @@ export class AppComponent {
     this.sidenavHide = true;
     this.sidenavRenderWidth = false;
     this.sidenavUseTransition = false;
+    this.phoneMediaController.activate();
   }
 
   /**

@@ -3,12 +3,8 @@
 
   <app-header
     (btnSidenavClick)="onBtnSidenavClicked()"
-    [media]="media"
-    [btnHeaderDown]="btnHeaderDown"
   ></app-header>
-  <app-header-button
-    (change)="btnHeaderDown = !btnHeaderDown"
-  ></app-header-button>
+  <app-header-button></app-header-button>
   
   <main>
     <app-sidebar

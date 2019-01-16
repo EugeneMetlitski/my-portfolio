@@ -13,10 +13,7 @@
 <app-sidebar-button (change)="onBtnSidenavClicked()"></app-sidebar-button>
 
 <!-- Button to scroll up on mobile media -->
-<button *ngIf="btnScrlUp"
-    (click)="onBtnScrlUpClicked()"
-    [style.visibility]="isPhone ? 'visible' : 'hidden'"
-    id="btnScrlUp">
+<button id="btnScrlUp">
     <div></div><div></div><div></div><div></div>
 </button>
 

@@ -1,5 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +40,7 @@ import { SidebarContentService } from 'src/services/sidebar-content.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'projects', pathMatch: 'full' },
