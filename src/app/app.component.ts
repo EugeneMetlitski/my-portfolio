@@ -1,6 +1,7 @@
 import { PhoneMediaControler } from '../services/phone-media-controler';
 import { Component, AfterViewInit } from '@angular/core';
 import { SidebarContentService } from 'src/services/sidebar-content.service';
+import { Router, NavigationStart } from '@angular/router';
 
 export enum Media { phone = 600, tablet = 800 }
 
@@ -15,14 +16,39 @@ export class AppComponent implements AfterViewInit {
 
   private phoneMediaController = new PhoneMediaControler();
 
+  sidenavRender: boolean;
   sidenavContent: Object;
   sidenavHide: boolean;
   sidenavRenderWidth: boolean;
   sidenavUseTransition: boolean;
 
-  constructor(sidenavContentService: SidebarContentService) {
+  constructor(
+    sidenavContentService: SidebarContentService,
+    private router: Router
+    ) {
     this.sidenavContent = sidenavContentService.content;
     this.setCurrentMedia();
+    this.sidenavRender = true;
+
+    router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event.url === '/contact' || event.url === '/resume') {
+          this.sidenavRender = false;
+
+          this.sidenavHide = true;
+          this.sidenavRenderWidth = false;
+          this.sidenavUseTransition = false;
+        } else {
+          this.sidenavRender = true;
+
+          if (this.media === undefined) {
+            this.sidenavHide = false;
+            this.sidenavRenderWidth = true;
+            this.sidenavUseTransition = false;
+          }
+        }
+      }
+    });
   }
 
   ngAfterViewInit(): void {
@@ -31,9 +57,12 @@ export class AppComponent implements AfterViewInit {
 
   onDesktop() {
     this.media = undefined;
-    this.sidenavHide = false;
-    this.sidenavRenderWidth = true;
-    this.sidenavUseTransition = false;
+
+    if (this.sidenavRender) {
+      this.sidenavHide = false;
+      this.sidenavRenderWidth = true;
+      this.sidenavUseTransition = false;
+    }
   }
 
   onTablet() {

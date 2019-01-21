@@ -1,0 +1,70 @@
+
+@import "../../../global-scss/variables.scss";
+
+.name-email {
+    // text-align: center;
+    // border: 1px solid black;
+    display: flex;
+
+    @media (max-width: 700px) {
+        flex-flow: column;
+    }
+}
+
+.frm-group {
+    // width: calc(50% - 0px);
+    width: 100%;
+
+    input {
+        width: calc(100% - 27px);
+
+        margin-bottom: 10px;
+        padding: 7px 10px;
+
+        border: 0 solid transparent;
+        border-radius: 5px;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+}
+
+#message {
+    resize: vertical;
+
+    width: calc(100% - 25px);
+    max-width: calc(100% - 25px);
+
+    padding: 10px 10px;
+
+    border: 0 solid transparent;
+    border-radius: 5px;
+}
+
+button {
+    float: right;
+
+    margin: 7px 3px;
+    padding: 5px 17px 4px 17px;
+
+    border-radius: 7px;
+    border: 1px solid transparent;
+
+    background: rgba(208, 228, 231, 0.842);
+    color: rgba(45, 42, 70, 0.932);
+    font-family: $font-1;
+    font-weight: 600;
+    
+}
+button:hover {
+    cursor: pointer;
+    background: rgb(208, 228, 231);
+    border: 1px solid rgba(171, 208, 250, 0.705);
+}
+button:active {
+    background: rgb(154, 173, 177);
+    border: 1px inset rgba(89, 112, 138, 0.705);
+}
+

@@ -10,6 +10,7 @@
 
 # Not Very Important
     - Make the sidenav component use Angular transitions instead of js.
+    - Rewrite routing the Angular 7 way
 
     - Check that all components are only responsible for
     logic for the view and nothing else, all other logic

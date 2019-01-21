@@ -1,0 +1,66 @@
+
+@import "../../../global-scss/variables.scss";
+
+.skills {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+
+    .container {
+        display: inline-block;
+        
+        margin: 0 10px 15px 10px;
+        
+        color: rgba(135, 150, 173, 0.637);
+        font-style: bold;
+        
+        div {
+            // background: blue;
+            margin: 1px 0;
+    
+            div {
+                float: right;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin-left: 5px;
+                margin-top: 3px;
+                background: rgba(117, 137, 143, 0.651);
+            }
+    
+            .full {
+                background: rgba(137, 238, 167, 0.548);
+            }
+        }
+    }
+}
+
+.education {
+    color: rgba(137, 238, 167, 0.548);
+
+    @include phone {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 5px;
+    }
+}
+
+h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: rgba(117, 137, 143, 0.651);
+
+    @include phone {
+        display: block;
+        text-align: center;
+    }
+}
+
+
+h4 {
+    font: medium;
+    margin: 0 0 5px 20px;
+}
