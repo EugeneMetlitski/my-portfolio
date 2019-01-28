@@ -1,6 +1,8 @@
 
 # Very Important
-    - Implement animations
+    - Make a footer
+    - On Phone when either sidenav or header is expanded, make it possible
+    that by clicking away the sidenav or header will collapse.
 
 # Important
     - Make utils/window-resize emit an event that window size query

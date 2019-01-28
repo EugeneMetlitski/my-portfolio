@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 
 @Component({
@@ -8,7 +8,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent {
 
-  title = `Portfolio`;
+  @Input() title = `Portfolio`;
+  @Input() renderBtnSidenav = true;
   @Output() btnSidenavClick = new EventEmitter();
 
   onBtnSidenavClicked() {

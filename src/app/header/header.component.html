@@ -10,7 +10,10 @@
 <app-profile-picture></app-profile-picture>
 
 <!-- Button to open / close the sidenav -->
-<app-sidebar-button (change)="onBtnSidenavClicked()"></app-sidebar-button>
+<app-sidebar-button
+    *ngIf="renderBtnSidenav"
+    (change)="onBtnSidenavClicked()"
+></app-sidebar-button>
 
 <!-- Button to scroll up on mobile media -->
 <button id="btnScrlUp">

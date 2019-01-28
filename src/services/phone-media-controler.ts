@@ -78,9 +78,13 @@ export class PhoneMediaControler {
 
   deactivate = () => {
     if (this.eventsAdded) {
+      this.header.element.style = '';
+      this.btnHeaderUpDown.visible = false;
+      this.btnHeaderScrlUp.visible = false;
+      this.btnHeaderUpDown.element.style.transform = `rotateX(0deg)`;
+
       this.eventsAdded = false;
       window.removeEventListener('scroll', this.onScroll);
-      this.header.element.style = '';
       this.btnSidenav.firstChild.removeEventListener('click', this.onClick_btnSidenav);
       this.btnHeaderUpDown.element.removeEventListener('click', this.onClick_btnHeaderUpDown);
     }

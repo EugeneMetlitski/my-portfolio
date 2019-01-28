@@ -103,6 +103,7 @@
                 }
     
                 a:hover {
+                    cursor: pointer;
                     background: color(sidenav-a-hover-bg);
                     color: color(sidenav-a-hover-text);
                     -webkit-text-stroke: 0.2px color(sidenav-a-hover-stroke);
@@ -115,8 +116,8 @@
                 
                 .active {
                     color: color(sidenav-a-hover-text);
-                    -webkit-text-stroke: 0.2px color(sidenav-a-hover-stroke);
-                    font-weight: bold;
+                    -webkit-text-stroke: 0.4px color(sidenav-a-hover-stroke);
+                    // font-weight: bold;
                 }
             }
         }
@@ -128,7 +129,7 @@
         top: $v-line-top;
         right: 0;
         width: 3px;
-        height: 102%;
+        height: calc(100% + 25px);
     }
 }
 
@@ -140,7 +141,7 @@
     left: 0;
     transform: translate(calc(-100% - 15px), 0);
     width: 0;
-    height: calc(100% + 30px);
+    height: calc(100% + 150px);
     background: color(bg-1);
     // background: black;
 }

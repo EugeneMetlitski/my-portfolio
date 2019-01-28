@@ -1,7 +1,8 @@
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,12 +14,12 @@ import { SidenavComponent } from './sidenav/sidebar.component';
 import { SidebarButtonComponent } from './header/sidebar-button/sidebar-button.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BioComponent } from './content/bio/bio.component';
-import { ProjectsComponent } from './content/projects/projects/projects.component';
 import { ResumeComponent } from './content/resume/resume.component';
 import { ContactComponent } from './content/contact/contact.component';
-import { WorkoutAppComponent } from './content/projects/workout-app/workout-app.component';
-import { MoneyTrackerComponent } from './content/projects/money-tracker/money-tracker.component';
-import { SidebarContentService } from 'src/services/sidebar-content.service';
+import { ProjectsComponent } from './content/projects/projects.component';
+
+import { ActivateSidenavLinksOnscrollService } from 'src/services/activate-sidenav-links-onscroll.service';
+import { WebService } from 'src/services/web.service';
 
 
 @NgModule({
@@ -32,32 +33,27 @@ import { SidebarContentService } from 'src/services/sidebar-content.service';
     SidebarButtonComponent,
     NotFoundComponent,
     BioComponent,
+    ProjectsComponent,
     ResumeComponent,
     ContactComponent,
-    WorkoutAppComponent,
-    MoneyTrackerComponent,
-    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: 'projects', pathMatch: 'full' },
+      { path: '', redirectTo: 'bio', pathMatch: 'full' },
       { path: 'bio', component: BioComponent },
-      { path: 'projects', component: ProjectsComponent,
-        children: [
-          { path: '', redirectTo: 'workout-app', pathMatch: 'full' },
-          { path: 'workout-app', component: WorkoutAppComponent },
-          { path: 'money-tracker', component: MoneyTrackerComponent },
-        ] },
+      { path: 'projects', component: ProjectsComponent },
       { path: 'resume', component: ResumeComponent },
       { path: 'contact', component: ContactComponent },
       { path: '**', component: NotFoundComponent },
     ])
   ],
   providers: [
-    SidebarContentService,
+    ActivateSidenavLinksOnscrollService,
+    WebService
   ],
   bootstrap: [AppComponent]
 })

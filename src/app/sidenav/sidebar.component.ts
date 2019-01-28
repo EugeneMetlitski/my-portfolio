@@ -1,6 +1,9 @@
 import { Component, Input, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap, NavigationStart } from '@angular/router';
+import { Router } from '@angular/router';
 import { CustomTransition } from 'src/utils/animations/custom-transition';
+import { smoothScrollTo } from 'src/utils/animations/animations';
+import { Media } from '../app.component';
+import { ActivateSidenavLinksOnscrollService } from 'src/services/activate-sidenav-links-onscroll.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,11 +13,13 @@ import { CustomTransition } from 'src/utils/animations/custom-transition';
 export class SidenavComponent implements AfterViewInit, OnChanges {
   //#region variables
 
+  // @Input() active = false;
   @Input() content;
   @Input() hide = false;
   @Input() renderWidth = true;
   @Input() useTransition = true;
   private anim = new CustomTransition(500);
+  private w = 0;
 
   //#endregion
   //#region getters & setters
@@ -23,11 +28,14 @@ export class SidenavComponent implements AfterViewInit, OnChanges {
    * The width of sidebar is determined by the content loaded
    * to the sidebar (i.e. how wide headings and links are).
    */
-  private get w() {
-    return document
-      .getElementsByClassName('sidebar')[0]
-      .getBoundingClientRect().width;
-  }
+  // private get w() {
+  //   console.log(document
+  //     .getElementsByClassName('sidebar')[0]
+  //     .getBoundingClientRect().width);
+  //   return document
+  //     .getElementsByClassName('sidebar')[0]
+  //     .getBoundingClientRect().width;
+  // }
 
   /**
    * Set the style left for the background element of the
@@ -57,18 +65,36 @@ export class SidenavComponent implements AfterViewInit, OnChanges {
   //#endregion
   //#region init
 
-  constructor(private _router: Router) {}
+  constructor(
+    private router: Router,
+    activateSidenavLinksOnscrollService: ActivateSidenavLinksOnscrollService
+  ) {
+    activateSidenavLinksOnscrollService.subscribe(this.subscribeToActivateSidenavLinksOnScroll);
+  }
 
   ngAfterViewInit() {
     this.update();
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (changes.content) {
+      this.w = changes.content.currentValue.width;
+    }
     this.update();
   }
 
   //#endregion
   //#region private functions
+
+  onClick(element) {
+    if (window.innerWidth > Media.tablet) { // On Desktop
+      smoothScrollTo(element.nativeElement.offsetTop + 150, 650);
+    } else if (window.innerWidth <= Media.phone) { // On Phone
+      smoothScrollTo(element.nativeElement.offsetTop + 320, 650);
+    } else { // On Tablet
+      smoothScrollTo(element.nativeElement.offsetTop + 160, 650);
+    }
+  }
 
   /**
    * Update the state of sidenav. Whether it should be hidden or visible,
@@ -112,7 +138,13 @@ export class SidenavComponent implements AfterViewInit, OnChanges {
    * link in the sidenav should be active based on url.
    */
   private isActivePage(page: string): boolean {
-    return '/' + page === this._router.url;
+    return '/' + page === this.router.url;
+  }
+
+  private subscribeToActivateSidenavLinksOnScroll = (activeLinks: boolean[]) => {
+    for (let i = 0; i < this.content.sections[0].links.length; i++) {
+      this.content.sections[0].links[i].isActive = activeLinks[i];
+    }
   }
 
   //#endregion

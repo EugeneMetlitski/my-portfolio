@@ -38,8 +38,10 @@ $nav: (
 
 $page-heading: (
     bottom-desktop:     25px,
-    left-desktop:       220px,
-    transform-desktop:  translate(0, 50%),
+    // left-desktop:       220px,
+    // transform-desktop:  translate(0, 50%),
+    left-desktop:       50%,
+    transform-desktop:  translate(-50%, 50%),
     height-desktop:     185px,
     
     left-tablet:        50%,

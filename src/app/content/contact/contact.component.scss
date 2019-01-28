@@ -6,7 +6,7 @@
     // border: 1px solid black;
     display: flex;
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
         flex-flow: column;
     }
 }
@@ -47,7 +47,9 @@ button {
     float: right;
 
     margin: 7px 3px;
-    padding: 5px 17px 4px 17px;
+    // padding: 5px 17px 4px 17px;
+    min-width: 80px;
+    min-height: 26px;
 
     border-radius: 7px;
     border: 1px solid transparent;
@@ -56,7 +58,14 @@ button {
     color: rgba(45, 42, 70, 0.932);
     font-family: $font-1;
     font-weight: 600;
-    
+
+    @media (max-width: 800px) {
+        float: none;
+        display: block;
+        margin: 14px auto 0 auto;
+        min-width: 120px;
+        min-height: 30px;
+    }
 }
 button:hover {
     cursor: pointer;
@@ -67,4 +76,47 @@ button:active {
     background: rgb(154, 173, 177);
     border: 1px inset rgba(89, 112, 138, 0.705);
 }
+button:disabled {
+    cursor: default;
 
+    opacity: 0.4;
+    background: rgba(208, 228, 231, 0.842);
+    border: 1px solid transparent;
+}
+
+.warning {
+    position: relative;
+    top: -5px;
+    width: calc(100% - 27px);
+
+    margin-bottom: 5px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;
+
+    background: rgba(245, 186, 186, 0.5);
+    color: rgba(145, 39, 39, 0.945);
+    font-weight: 500;
+}
+
+.msgSentSuccess {
+    float: right;
+
+    margin-top: 7px;
+    margin-right: 5px;
+    padding: 4px 17px 4px 17px;
+
+    border-radius: 5px;
+    background: rgba(66, 148, 66, 0.678);
+    color: rgba(223, 223, 223, 0.938);
+
+    @media (max-width: 800px) {
+        float: none;
+        display: block;
+
+        margin: 13px auto 0 auto;
+        padding-top: 5px;
+        width: 130px;
+        height: 18px;
+        text-align: center;
+    }
+}
