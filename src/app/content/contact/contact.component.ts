@@ -12,6 +12,7 @@ export class ContactComponent {
   btnSubmit = 'Send';
   btnSubmitDisabled = false;
   msgSentSuccess = false;
+  msgSentError = false;
 
   constructor(private webService: WebService) {}
 
@@ -25,7 +26,7 @@ export class ContactComponent {
       Validators.maxLength(60),
       Validators.email
     ]),
-    message: new FormControl('', [
+    msg: new FormControl('', [
       Validators.required,
       Validators.maxLength(500)
     ])
@@ -35,17 +36,26 @@ export class ContactComponent {
     this.btnSubmitDisabled = true;
     this.btnSubmit = 'Sending...';
 
-    this.webService.submitEnquiry(this.form.value, (success: boolean) => {
-      console.log(`Form sent succsessfully: ${success}`);
+    this.webService.post(this.form.value, (success) => {
+
+      if (success === true) {
+        this.msgSentSuccess = true;
+
+        setTimeout(() => {
+          this.msgSentSuccess = false;
+        }, 3000);
+
+      } else {
+        this.msgSentError = true;
+
+        setTimeout(() => {
+          this.msgSentError = false;
+        }, 3000);
+      }
+
       this.btnSubmitDisabled = false;
       this.btnSubmit = 'Send';
       this.form.reset();
-      this.msgSentSuccess = true;
-
-      setTimeout(() => {
-        this.msgSentSuccess = false;
-      }, 3000);
     });
   }
-
 }

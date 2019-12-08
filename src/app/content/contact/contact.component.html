@@ -11,30 +11,25 @@
   <div class="name-email">
     <div class="frm-group">
       <label for="name">Name:</label>
-      <input
-        formControlName="name"
-        id="name"
-        type="text"
-      />
+      <input formControlName="name"
+             id="name"
+             type="text" />
       <label class="warning"
-        *ngIf="form.get('name').touched && form.get('name').invalid"
-      >
+             *ngIf="form.get('name').touched && form.get('name').invalid">
         <div *ngIf="form.get('name').errors.required">Please enter your name</div>
         <div *ngIf="form.get('name').errors.maxlength">
           Maximum characters is {{ form.get('name').errors.maxlength.requiredLength }}
         </div>
       </label>
     </div>
+
     <div class="frm-group">
       <label for="email">Email:</label>
-      <input
-        formControlName="email"
-        id="email"
-        type="text"
-      />
+      <input formControlName="email"
+             id="email"
+             type="text" />
       <div class="warning"
-        *ngIf="form.get('email').touched && form.get('email').invalid"
-      >
+           *ngIf="form.get('email').touched && form.get('email').invalid">
         <div *ngIf="form.get('email').errors.required">Please enter a valid email address</div>
         <div *ngIf="form.get('email').errors.email">Please enter a valid email address</div>
         <div *ngIf="form.get('email').errors.maxlength">
@@ -43,29 +38,28 @@
       </div>
     </div>
   </div>
+
   <!-- <div class="frm-group"> -->
-    <label for="message">Message:</label>
-    <textarea
-      formControlName="message"
-      name="message"
-      id="message"
-      rows="8"
-    ></textarea>
-    <div class="warning" style="margin: 7px 0 0 0; padding-right: 13px;"
-      *ngIf="form.get('message').touched && form.get('message').invalid"
-    >
-      <div *ngIf="form.get('message').errors.required">
-        Please enter a mesage
-      </div>
-      <div *ngIf="form.get('message').errors.maxlength">
-        Maximum characters is {{ form.get('message').errors.maxlength.requiredLength }}
-      </div>
+  <label for="message">Message:</label>
+  <textarea formControlName="msg"
+            name="message"
+            id="message"
+            rows="8"></textarea>
+  <div class="warning" style="margin: 7px 0 0 0; padding-right: 13px;"
+       *ngIf="form.get('msg').touched && form.get('msg').invalid">
+    <div *ngIf="form.get('msg').errors.required">
+      Please enter a mesage
     </div>
+    <div *ngIf="form.get('msg').errors.maxlength">
+      Maximum characters is {{ form.get('message').errors.maxlength.requiredLength }}
+    </div>
+  </div>
   <!-- </div> -->
 
   <button [disabled]="form.invalid || btnSubmitDisabled">{{ btnSubmit }}</button>
-  
+
   <div *ngIf="msgSentSuccess" class="msgSentSuccess">Message sent!</div>
+  <div *ngIf="msgSentError" class="msgSentError">Could not send message!</div>
 
 </form>
 

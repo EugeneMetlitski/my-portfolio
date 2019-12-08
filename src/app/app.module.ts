@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,16 +40,17 @@ import { WebService } from 'src/services/web.service';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'bio', pathMatch: 'full' },
       { path: 'bio', component: BioComponent },
       { path: 'projects', component: ProjectsComponent },
       { path: 'resume', component: ResumeComponent },
       { path: 'contact', component: ContactComponent },
-      { path: '**', component: NotFoundComponent },
+      { path: '**', component: BioComponent },
     ])
   ],
   providers: [

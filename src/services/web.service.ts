@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  submitEnquiry(vals: JSON, cb: Function) {
-    console.log(vals);
-    setTimeout(() => {
-      cb(true);
-    }, 3000);
+  private homeUrl = 'https://localhost:44360';
+  // private homeUrl = 'https://em-portfolio.azurewebsites.net';
+
+  post(vals: JSON, cb: Function) {
+    const url = `${this.homeUrl}/api/messages`;
+    this.http.post(url, vals).subscribe(res => { cb(res); });
   }
 }

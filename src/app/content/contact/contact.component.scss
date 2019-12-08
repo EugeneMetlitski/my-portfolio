@@ -120,3 +120,23 @@ button:disabled {
         text-align: center;
     }
 }
+
+.msgSentError {
+  float: right;
+  margin-top: 7px;
+  margin-right: 5px;
+  padding: 4px 17px 4px 17px;
+  border-radius: 5px;
+  background: red;
+  color: white;
+
+  @media (max-width: 800px) {
+    float: none;
+    display: block;
+    margin: 13px auto 0 auto;
+    padding-top: 5px;
+    width: 130px;
+    height: 18px;
+    text-align: center;
+  }
+}
