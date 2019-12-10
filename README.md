@@ -1,27 +1,13 @@
-# Portfolio
+# Portfolio Website (version 1)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+[go to site](http://eugene-metlitski.com/portfolio-site-v1)
 
-## Development server
+This is the first version of my personal portfolio
+website.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Development
 
-## Code scaffolding
+This is a front-end portion of the website which was
+developed using Angular version 7.1.2.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This website was developed near the end of 2018.

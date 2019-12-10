@@ -8,8 +8,8 @@ export class WebService {
 
   constructor(private http: HttpClient) { }
 
-  private homeUrl = 'https://localhost:44360';
-  // private homeUrl = 'https://em-portfolio.azurewebsites.net';
+  // private homeUrl = 'https://localhost:44360';
+  private homeUrl = 'http://eugene-metlitski.com';
 
   post(vals: JSON, cb: Function) {
     const url = `${this.homeUrl}/api/messages`;
